@@ -1,5 +1,5 @@
-import { Component, OnInit, inject, signal, computed } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, inject, signal, computed, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormArray, FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
@@ -1220,6 +1220,8 @@ export class SandboxComponent implements OnInit {
   private fb = inject(FormBuilder);
   private http = inject(HttpClient);
   private snackBar = inject(MatSnackBar);
+  private platformId = inject(PLATFORM_ID);
+  private isBrowser = isPlatformBrowser(this.platformId);
 
   // Table data and state
   users = signal<User[]>([]);
@@ -1266,9 +1268,11 @@ export class SandboxComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadUsers();
-    this.setupTableFilters();
-    this.startLiveMetrics();
+    if (this.isBrowser) {
+      this.loadUsers();
+      this.setupTableFilters();
+      this.startLiveMetrics();
+    }
   }
 
   private initializeForms() {
@@ -1341,6 +1345,8 @@ export class SandboxComponent implements OnInit {
   }
 
   private autoSave() {
+    if (!this.isBrowser) return;
+    
     this.autoSaveStatus.set('saving');
     
     // Simulate auto-save
@@ -1381,7 +1387,9 @@ export class SandboxComponent implements OnInit {
       });
       
       // Clear saved data
-      localStorage.removeItem('sandbox-form-data');
+      if (this.isBrowser) {
+        localStorage.removeItem('sandbox-form-data');
+      }
     }, 3000);
   }
 
@@ -1589,6 +1597,11 @@ export class SandboxComponent implements OnInit {
   }
 
   exportData() {
+    if (!this.isBrowser) {
+      this.snackBar.open('Export not available during server rendering', 'Close', { duration: 3000 });
+      return;
+    }
+    
     const data = this.filteredUsers();
     const csv = this.convertToCSV(data);
     this.downloadCSV(csv, 'users-export.csv');
@@ -1609,6 +1622,8 @@ export class SandboxComponent implements OnInit {
   }
 
   private downloadCSV(csv: string, filename: string) {
+    if (!this.isBrowser) return;
+    
     const blob = new Blob([csv], { type: 'text/csv' });
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -1624,6 +1639,8 @@ export class SandboxComponent implements OnInit {
 
   // Real-time features
   private startLiveMetrics() {
+    if (!this.isBrowser) return;
+    
     interval(3000).subscribe(() => {
       this.liveMetrics.set({
         activeUsers: Math.floor(Math.random() * 1000) + 500,

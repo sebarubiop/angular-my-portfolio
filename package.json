@@ -7,14 +7,16 @@
     "start": "ng serve",
     "start:ssr": "ng serve-ssr",
     "build": "ng build",
-    "build:ssr": "ng build --configuration production && ng server",
+    "build:ssr": "ng build --configuration production",
     "extract-i18n": "ng extract-i18n",
-    "serve:ssr": "node dist/demo/server.mjs",
+    "serve:ssr": "node dist/demo/server/server.mjs",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "e2e": "cypress open",
-    "e2e:headless": "cypress run"
+    "e2e:headless": "cypress run",
+    "deploy": "ng build --configuration production && firebase deploy",
+    "deploy:hosting": "firebase deploy --only hosting"
   },
   "dependencies": {
     "@angular/animations": "^20.0.0",

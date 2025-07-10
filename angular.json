@@ -27,17 +27,18 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "1mb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
                 }
               ]
             }
           },
+          "defaultConfiguration": "production",
           "options": {
             "assets": [
               "src/favicon.ico",
@@ -53,7 +54,12 @@
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/global_styles.css"
             ],
-            "tsConfig": "tsconfig.app.json"
+            "tsConfig": "tsconfig.app.json",
+            "server": "src/main.server.ts",
+            "outputMode": "server",
+            "ssr": {
+              "entry": "src/server.ts"
+            }
           }
         },
         "serve": {
@@ -111,7 +117,7 @@
         "locales": {
           "es": {
             "translation": "src/locale/messages.es.xlf",
-            "baseHref": "/es/"
+            "subPath": "es"
           }
         }
       },

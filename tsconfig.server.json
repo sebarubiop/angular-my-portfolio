@@ -6,8 +6,6 @@
     "module": "ES2022",
     "types": ["node"]
   },
-  "files": ["server.ts"],
-  "angularCompilerOptions": {
-    "entryModule": "./src/main.server.ts#main"
-  }
+  "files": ["server.ts", "src/main.server.ts"],
+  "include": ["src/**/*.ts"]
 }
