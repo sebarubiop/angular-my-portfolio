@@ -1,0 +1,333 @@
+/* CSS Custom Properties for Theme System */
+:root {
+  /* Primary Colors */
+  --primary-color: #3F51B5;
+  --primary-color-light: #C5CAE9;
+  --primary-color-dark: #303F9F;
+  --on-primary-color: #FFFFFF;
+
+  /* Secondary Colors */
+  --secondary-color: #E91E63;
+  --secondary-color-light: #F8BBD9;
+  --secondary-color-dark: #C2185B;
+  --on-secondary-color: #FFFFFF;
+
+  /* Surface Colors */
+  --surface-color: #FFFFFF;
+  --surface-variant-color: #F5F5F5;
+  --on-surface-color: #212121;
+  --on-surface-variant-color: #757575;
+
+  /* Background Colors */
+  --background-color: #FAFAFA;
+  --on-background-color: #212121;
+
+  /* Border and Divider */
+  --border-color: #E0E0E0;
+  --divider-color: #BDBDBD;
+
+  /* Status Colors */
+  --success-color: #4CAF50;
+  --warning-color: #FF9800;
+  --error-color: #F44336;
+  --info-color: #2196F3;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-md: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
+  /* Typography */
+  --font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --font-size-base: 16px;
+  --line-height-base: 1.5;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+
+  /* Border Radius */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* Dark Theme Variables */
+.dark-theme {
+  /* Primary Colors */
+  --primary-color: #7986CB;
+  --primary-color-light: #3F51B5;
+  --primary-color-dark: #303F9F;
+  --on-primary-color: #000000;
+
+  /* Secondary Colors */
+  --secondary-color: #F06292;
+  --secondary-color-light: #E91E63;
+  --secondary-color-dark: #C2185B;
+  --on-secondary-color: #000000;
+
+  /* Surface Colors */
+  --surface-color: #1E1E1E;
+  --surface-variant-color: #2A2A2A;
+  --on-surface-color: #FFFFFF;
+  --on-surface-variant-color: #CCCCCC;
+
+  /* Background Colors */
+  --background-color: #121212;
+  --on-background-color: #FFFFFF;
+
+  /* Border and Divider */
+  --border-color: #333333;
+  --divider-color: #444444;
+
+  /* Status Colors */
+  --success-color: #66BB6A;
+  --warning-color: #FFB74D;
+  --error-color: #EF5350;
+  --info-color: #42A5F5;
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-size: var(--font-size-base);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  line-height: var(--line-height-base);
+  color: var(--on-background-color);
+  background-color: var(--background-color);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--on-surface-color);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1.125rem; }
+
+p {
+  margin: 0 0 1rem;
+  color: var(--on-surface-variant-color);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-color-dark);
+  text-decoration: underline;
+}
+
+/* Focus Styles for Accessibility */
+*:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+button:focus,
+.mat-mdc-button:focus,
+.mat-mdc-raised-button:focus,
+.mat-mdc-fab:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.hidden { display: none !important; }
+.visible { display: block !important; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  :root {
+    --font-size-base: 14px;
+  }
+
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+  h5 { font-size: 1.125rem; }
+  h6 { font-size: 1rem; }
+}
+
+/* Material Design Component Customizations */
+.mat-mdc-card {
+  background-color: var(--surface-color);
+  color: var(--on-surface-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-normal);
+}
+
+.mat-mdc-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-fab {
+  border-radius: var(--border-radius-md);
+  transition: all var(--transition-fast);
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+.mat-mdc-chip {
+  border-radius: var(--border-radius-xl);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-variant-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: var(--border-radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--divider-color);
+}
+
+.dark-theme ::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+.dark-theme ::-webkit-scrollbar-thumb {
+  background: var(--surface-variant-color);
+}
+
+.dark-theme ::-webkit-scrollbar-thumb:hover {
+  background: var(--border-color);
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --border-color: #000000;
+    --divider-color: #000000;
+  }
+
+  .dark-theme {
+    --border-color: #FFFFFF;
+    --divider-color: #FFFFFF;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.3;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+
+  p, li {
+    page-break-inside: avoid;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}

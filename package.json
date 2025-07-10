@@ -1,0 +1,49 @@
+{
+  "name": "angular-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "start:ssr": "ng serve-ssr",
+    "build": "ng build",
+    "build:ssr": "ng build --configuration production && ng server",
+    "extract-i18n": "ng extract-i18n",
+    "serve:ssr": "node dist/demo/server.mjs",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "e2e": "cypress open",
+    "e2e:headless": "cypress run"
+  },
+  "dependencies": {
+    "@angular/animations": "^20.0.0",
+    "@angular/cdk": "^20.0.0",
+    "@angular/common": "^20.1.0",
+    "@angular/compiler": "^20.0.0",
+    "@angular/core": "^20.0.0",
+    "@angular/forms": "^20.1.0",
+    "@angular/localize": "^20.0.0",
+    "@angular/material": "^20.0.0",
+    "@angular/platform-browser": "^20.0.0",
+    "@angular/platform-server": "^20.0.0",
+    "@angular/pwa": "^20.0.0",
+    "@angular/router": "^20.0.0",
+    "@angular/service-worker": "^20.0.0",
+    "@angular/ssr": "^20.0.0",
+    "express": "^4.19.2",
+    "hammerjs": "^2.0.8",
+    "rxjs": "^7.8.1",
+    "tslib": "^2.5.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^20.0.0",
+    "@angular/cli": "^20.0.0",
+    "@angular/compiler-cli": "^20.0.0",
+    "@types/express": "^5.0.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^22.10.2",
+    "typescript": "^5.8.2"
+  }
+}
