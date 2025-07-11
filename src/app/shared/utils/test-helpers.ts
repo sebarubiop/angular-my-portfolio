@@ -99,7 +99,7 @@ export class TestHelpers {
   static createSpyObj<T>(
     baseName: string,
     methodNames: (keyof T)[]
-  ): jasmine.SpyObj<T> {
+  ): jest.Mocked<T> {
     const obj: any = {};
     methodNames.forEach(name => {
       obj[name] = jest.fn();
@@ -155,7 +155,7 @@ export const customMatchers = {
   toHaveBeenCalledWithError: (received: jest.Mock, expectedError: string) => {
     const calls = received.mock.calls;
     const hasErrorCall = calls.some(call => 
-      call.some(arg => arg instanceof Error && arg.message === expectedError)
+      call.some((arg: { message: string; }) => arg instanceof Error && arg.message === expectedError)
     );
     
     return {

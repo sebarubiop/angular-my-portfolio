@@ -1,0 +1,169 @@
+<div class="contact-container">
+  <div class="contact-header">
+    <h1 class="page-title">{{ 'contact.page_title' | translate }}</h1>
+    <p class="page-subtitle">{{ 'contact.page_subtitle' | translate }}</p>
+  </div>
+
+  <div class="contact-content">
+    <div class="contact-grid">
+      <!-- Contact Information -->
+      <div class="contact-info">
+        <h2 class="section-title">{{ 'contact.get_in_touch' | translate }}</h2>
+        
+        <div class="contact-cards">
+          <mat-card class="contact-card">
+            <mat-card-content>
+              <mat-icon class="contact-icon">email</mat-icon>
+              <h3 class="contact-title">{{ 'contact.email' | translate }}</h3>
+              <p class="contact-value">sebarubiop&#64;gmail.com</p>
+              <p class="contact-description">{{ 'contact.email_description' | translate }}</p>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="contact-card">
+            <mat-card-content>
+              <mat-icon class="contact-icon">phone</mat-icon>
+              <h3 class="contact-title">{{ 'contact.phone' | translate }}</h3>
+              <p class="contact-value">+1 (555) 123-4567</p>
+              <p class="contact-description">{{ 'contact.phone_description' | translate }}</p>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="contact-card">
+            <mat-card-content>
+              <mat-icon class="contact-icon">location_on</mat-icon>
+              <h3 class="contact-title">{{ 'contact.location' | translate }}</h3>
+              <p class="contact-value">{{ 'contact.location_value' | translate }}</p>
+              <p class="contact-description">{{ 'contact.location_description' | translate }}</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <!-- Social Links -->
+        <div class="social-section">
+          <h3 class="social-title">{{ 'contact.follow_me' | translate }}</h3>
+          <div class="social-links">
+            <a href="#" class="social-link linkedin">
+              <mat-icon>linkedin</mat-icon>
+              <span>LinkedIn</span>
+            </a>
+            <a href="#" class="social-link github">
+              <mat-icon>code</mat-icon>
+              <span>GitHub</span>
+            </a>
+            <a href="#" class="social-link twitter">
+              <mat-icon>chat</mat-icon>
+              <span>Twitter</span>
+            </a>
+            <a href="#" class="social-link instagram">
+              <mat-icon>camera_alt</mat-icon>
+              <span>Instagram</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-section">
+        <h2 class="section-title">{{ 'contact.send_message' | translate }}</h2>
+        
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+          <div class="form-row">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>{{ 'contact.form.name' | translate }}</mat-label>
+              <input matInput formControlName="name" placeholder="{{ 'contact.form.name_placeholder' | translate }}">
+              <mat-error *ngIf="contactForm.get('name')?.errors?.['required']">
+                {{ 'contact.form.name_required' | translate }}
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>{{ 'contact.form.email' | translate }}</mat-label>
+              <input matInput formControlName="email" type="email" placeholder="{{ 'contact.form.email_placeholder' | translate }}">
+              <mat-error *ngIf="contactForm.get('email')?.errors?.['required']">
+                {{ 'contact.form.email_required' | translate }}
+              </mat-error>
+              <mat-error *ngIf="contactForm.get('email')?.errors?.['email']">
+                {{ 'contact.form.email_invalid' | translate }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form-row">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>{{ 'contact.form.subject' | translate }}</mat-label>
+              <input matInput formControlName="subject" placeholder="{{ 'contact.form.subject_placeholder' | translate }}">
+              <mat-error *ngIf="contactForm.get('subject')?.errors?.['required']">
+                {{ 'contact.form.subject_required' | translate }}
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>{{ 'contact.form.company' | translate }}</mat-label>
+              <input matInput formControlName="company" placeholder="{{ 'contact.form.company_placeholder' | translate }}">
+            </mat-form-field>
+          </div>
+
+          <div class="form-row">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>{{ 'contact.form.project_type' | translate }}</mat-label>
+              <mat-select formControlName="projectType">
+                <mat-option value="website">{{ 'contact.form.project_types.website' | translate }}</mat-option>
+                <mat-option value="webapp">{{ 'contact.form.project_types.webapp' | translate }}</mat-option>
+                <mat-option value="mobile">{{ 'contact.form.project_types.mobile' | translate }}</mat-option>
+                <mat-option value="ecommerce">{{ 'contact.form.project_types.ecommerce' | translate }}</mat-option>
+                <mat-option value="consulting">{{ 'contact.form.project_types.consulting' | translate }}</mat-option>
+                <mat-option value="other">{{ 'contact.form.project_types.other' | translate }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>{{ 'contact.form.budget' | translate }}</mat-label>
+              <mat-select formControlName="budget">
+                <mat-option value="small">{{ 'contact.form.budget_ranges.small' | translate }}</mat-option>
+                <mat-option value="medium">{{ 'contact.form.budget_ranges.medium' | translate }}</mat-option>
+                <mat-option value="large">{{ 'contact.form.budget_ranges.large' | translate }}</mat-option>
+                <mat-option value="enterprise">{{ 'contact.form.budget_ranges.enterprise' | translate }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <mat-form-field class="form-field full-width" appearance="outline">
+            <mat-label>{{ 'contact.form.message' | translate }}</mat-label>
+            <textarea matInput formControlName="message" rows="6" placeholder="{{ 'contact.form.message_placeholder' | translate }}"></textarea>
+            <mat-error *ngIf="contactForm.get('message')?.errors?.['required']">
+              {{ 'contact.form.message_required' | translate }}
+            </mat-error>
+          </mat-form-field>
+
+          <div class="form-actions">
+            <button mat-raised-button color="primary" type="submit" [disabled]="contactForm.invalid || isSubmitting">
+              <mat-icon>send</mat-icon>
+              {{ 'contact.form.send_message' | translate }}
+            </button>
+            <button mat-button type="button" (click)="resetForm()">
+              <mat-icon>refresh</mat-icon>
+              {{ 'contact.form.reset' | translate }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section">
+      <h2 class="section-title">{{ 'contact.faq.title' | translate }}</h2>
+      <mat-accordion class="faq-accordion">
+        <mat-expansion-panel *ngFor="let faq of faqs" class="faq-panel">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon class="faq-icon">help_outline</mat-icon>
+              {{ faq.question | translate }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p class="faq-answer">{{ faq.answer | translate }}</p>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div> 

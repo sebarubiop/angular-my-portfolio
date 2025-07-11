@@ -1,0 +1,760 @@
+<div class="sandbox-container">
+  <div class="sandbox-header">
+    <h1 class="page-title">Component Sandbox</h1>
+    <p class="page-subtitle">
+      Comprehensive demo showcasing advanced data tables, multi-step forms, and real-time features
+    </p>
+  </div>
+
+  <mat-tab-group class="sandbox-tabs" animationDuration="300ms">
+    <!-- Data Table Tab -->
+    <mat-tab label="Advanced Data Table">
+      <div class="tab-content">
+        <mat-card class="table-card">
+          <mat-card-header>
+            <mat-card-title>User Management Table</mat-card-title>
+            <mat-card-subtitle>
+              Advanced table with sorting, filtering, pagination, and inline editing
+            </mat-card-subtitle>
+          </mat-card-header>
+          
+          <mat-card-content>
+            <!-- Table Controls -->
+            <div class="table-controls">
+              <div class="search-controls">
+                <mat-form-field appearance="outline" class="search-field">
+                  <mat-label>Search users...</mat-label>
+                  <input matInput 
+                         [formControl]="searchControl" 
+                         placeholder="Search by name, email, or company">
+                  <mat-icon matSuffix>search</mat-icon>
+                </mat-form-field>
+                
+                <mat-form-field appearance="outline" class="filter-field">
+                  <mat-label>Filter by Status</mat-label>
+                  <mat-select [formControl]="statusFilterControl" multiple>
+                    <mat-option value="active">Active</mat-option>
+                    <mat-option value="inactive">Inactive</mat-option>
+                    <mat-option value="pending">Pending</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              
+              <div class="action-controls">
+                <button mat-raised-button color="primary" (click)="addNewUser()">
+                  <mat-icon>add</mat-icon>
+                  Add User
+                </button>
+                <button mat-stroked-button (click)="exportData()">
+                  <mat-icon>download</mat-icon>
+                  Export
+                </button>
+                <button mat-stroked-button (click)="refreshData()">
+                  <mat-icon>refresh</mat-icon>
+                  Refresh
+                </button>
+              </div>
+            </div>
+
+            <!-- Loading Indicator -->
+            <mat-progress-bar *ngIf="isLoading()" mode="indeterminate"></mat-progress-bar>
+
+            <!-- Data Table -->
+            <div class="table-container">
+              <table mat-table 
+                     [dataSource]="paginatedData()" 
+                     matSort 
+                     (matSortChange)="onSortChange($event)"
+                     class="user-table">
+                
+                <!-- Selection Column -->
+                <ng-container matColumnDef="select">
+                  <th mat-header-cell *matHeaderCellDef>
+                    <mat-checkbox 
+                      [checked]="isAllSelected()"
+                      [indeterminate]="isPartiallySelected()"
+                      (change)="toggleAllSelection()">
+                    </mat-checkbox>
+                  </th>
+                  <td mat-cell *matCellDef="let user">
+                    <mat-checkbox 
+                      [checked]="isSelected(user.id)"
+                      (change)="toggleSelection(user.id)">
+                    </mat-checkbox>
+                  </td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+                  <td mat-cell *matCellDef="let user">
+                    <div *ngIf="!isEditing(user.id); else editName" class="cell-content">
+                      {{ user.name }}
+                    </div>
+                    <ng-template #editName>
+                      <mat-form-field appearance="outline" class="inline-edit">
+                        <input matInput [(ngModel)]="editingUser.name">
+                      </mat-form-field>
+                    </ng-template>
+                  </td>
+                </ng-container>
+
+                <!-- Email Column -->
+                <ng-container matColumnDef="email">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+                  <td mat-cell *matCellDef="let user">
+                    <div *ngIf="!isEditing(user.id); else editEmail" class="cell-content">
+                      <a [href]="'mailto:' + user.email">{{ user.email }}</a>
+                    </div>
+                    <ng-template #editEmail>
+                      <mat-form-field appearance="outline" class="inline-edit">
+                        <input matInput type="email" [(ngModel)]="editingUser.email">
+                      </mat-form-field>
+                    </ng-template>
+                  </td>
+                </ng-container>
+
+                <!-- Company Column -->
+                <ng-container matColumnDef="company">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Company</th>
+                  <td mat-cell *matCellDef="let user">{{ user.company.name }}</td>
+                </ng-container>
+
+                <!-- Status Column -->
+                <ng-container matColumnDef="status">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+                  <td mat-cell *matCellDef="let user">
+                    <div *ngIf="!isEditing(user.id); else editStatus">
+                      <span class="status-badge" [class]="'status-' + user.status">
+                        {{ user.status | titlecase }}
+                      </span>
+                    </div>
+                    <ng-template #editStatus>
+                      <mat-form-field appearance="outline" class="inline-edit">
+                        <mat-select [(ngModel)]="editingUser.status">
+                          <mat-option value="active">Active</mat-option>
+                          <mat-option value="inactive">Inactive</mat-option>
+                          <mat-option value="pending">Pending</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </ng-template>
+                  </td>
+                </ng-container>
+
+                <!-- Last Login Column -->
+                <ng-container matColumnDef="lastLogin">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Login</th>
+                  <td mat-cell *matCellDef="let user">
+                    {{ user.lastLogin | date:'short' }}
+                  </td>
+                </ng-container>
+
+                <!-- Actions Column -->
+                <ng-container matColumnDef="actions">
+                  <th mat-header-cell *matHeaderCellDef>Actions</th>
+                  <td mat-cell *matCellDef="let user">
+                    <div class="action-buttons">
+                      <button *ngIf="!isEditing(user.id)" 
+                              mat-icon-button 
+                              (click)="startEdit(user)"
+                              matTooltip="Edit">
+                        <mat-icon>edit</mat-icon>
+                      </button>
+                      <button *ngIf="isEditing(user.id)" 
+                              mat-icon-button 
+                              color="primary"
+                              (click)="saveEdit(user.id)"
+                              matTooltip="Save">
+                        <mat-icon>save</mat-icon>
+                      </button>
+                      <button *ngIf="isEditing(user.id)" 
+                              mat-icon-button 
+                              (click)="cancelEdit()"
+                              matTooltip="Cancel">
+                        <mat-icon>cancel</mat-icon>
+                      </button>
+                      <button *ngIf="!isEditing(user.id)" 
+                              mat-icon-button 
+                              color="warn"
+                              (click)="deleteUser(user.id)"
+                              matTooltip="Delete">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                    </div>
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+            </div>
+
+            <!-- Pagination -->
+            <mat-paginator 
+              [length]="totalItems()"
+              [pageSize]="pageSize()"
+              [pageSizeOptions]="[5, 10, 25, 50]"
+              (page)="onPageChange($event)"
+              showFirstLastButtons>
+            </mat-paginator>
+
+            <!-- Selection Info -->
+            <div *ngIf="selectedItems().length > 0" class="selection-info">
+              <span>{{ selectedItems().length }} item(s) selected</span>
+              <button mat-button color="warn" (click)="deleteSelected()">
+                <mat-icon>delete</mat-icon>
+                Delete Selected
+              </button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+
+    <!-- Multi-Step Form Tab -->
+    <mat-tab label="Multi-Step Form">
+      <div class="tab-content">
+        <mat-card class="form-card">
+          <mat-card-header>
+            <mat-card-title>Project Registration Form</mat-card-title>
+            <mat-card-subtitle>
+              Multi-step form with validation, conditional fields, and auto-save
+            </mat-card-subtitle>
+          </mat-card-header>
+          
+          <mat-card-content>
+            <mat-stepper [linear]="true" #stepper>
+              <!-- Step 1: Basic Information -->
+              <mat-step [stepControl]="basicInfoForm" label="Basic Information">
+                <form [formGroup]="basicInfoForm" class="step-form">
+                  <h3>Project Details</h3>
+                  
+                  <div class="form-row">
+                    <mat-form-field appearance="outline" class="form-field">
+                      <mat-label>Project Name</mat-label>
+                      <input matInput formControlName="projectName" required>
+                      <mat-error *ngIf="basicInfoForm.get('projectName')?.hasError('required')">
+                        Project name is required
+                      </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="form-field">
+                      <mat-label>Project Type</mat-label>
+                      <mat-select formControlName="projectType" required>
+                        <mat-option value="web">Web Application</mat-option>
+                        <mat-option value="mobile">Mobile Application</mat-option>
+                        <mat-option value="desktop">Desktop Application</mat-option>
+                        <mat-option value="api">API Development</mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="basicInfoForm.get('projectType')?.hasError('required')">
+                        Project type is required
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-row">
+                    <mat-form-field appearance="outline" class="form-field">
+                      <mat-label>Start Date</mat-label>
+                      <input matInput [matDatepicker]="startPicker" formControlName="startDate" required>
+                      <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+                      <mat-datepicker #startPicker></mat-datepicker>
+                      <mat-error *ngIf="basicInfoForm.get('startDate')?.hasError('required')">
+                        Start date is required
+                      </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="form-field">
+                      <mat-label>End Date</mat-label>
+                      <input matInput [matDatepicker]="endPicker" formControlName="endDate">
+                      <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+                      <mat-datepicker #endPicker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+
+                  <mat-form-field appearance="outline" class="form-field full-width">
+                    <mat-label>Project Description</mat-label>
+                    <textarea matInput 
+                              formControlName="description" 
+                              rows="4" 
+                              placeholder="Describe your project goals and requirements..."
+                              required>
+                    </textarea>
+                    <mat-error *ngIf="basicInfoForm.get('description')?.hasError('required')">
+                      Description is required
+                    </mat-error>
+                    <mat-error *ngIf="basicInfoForm.get('description')?.hasError('minlength')">
+                      Description must be at least 20 characters long
+                    </mat-error>
+                  </mat-form-field>
+
+                  <div class="step-actions">
+                    <button mat-raised-button 
+                            color="primary" 
+                            matStepperNext 
+                            [disabled]="basicInfoForm.invalid">
+                      Next
+                    </button>
+                  </div>
+                </form>
+              </mat-step>
+
+              <!-- Step 2: Technical Requirements -->
+              <mat-step [stepControl]="technicalForm" label="Technical Requirements">
+                <form [formGroup]="technicalForm" class="step-form">
+                  <h3>Technology Stack</h3>
+                  
+                  <div class="form-row">
+                    <mat-form-field appearance="outline" class="form-field">
+                      <mat-label>Frontend Framework</mat-label>
+                      <mat-select formControlName="frontend" multiple>
+                        <mat-option value="angular">Angular</mat-option>
+                        <mat-option value="react">React</mat-option>
+                        <mat-option value="vue">Vue.js</mat-option>
+                        <mat-option value="svelte">Svelte</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="form-field">
+                      <mat-label>Backend Technology</mat-label>
+                      <mat-select formControlName="backend" multiple>
+                        <mat-option value="nodejs">Node.js</mat-option>
+                        <mat-option value="python">Python</mat-option>
+                        <mat-option value="java">Java</mat-option>
+                        <mat-option value="csharp">C#</mat-option>
+                        <mat-option value="php">PHP</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-row">
+                    <mat-form-field appearance="outline" class="form-field">
+                      <mat-label>Database</mat-label>
+                      <mat-select formControlName="database">
+                        <mat-option value="postgresql">PostgreSQL</mat-option>
+                        <mat-option value="mysql">MySQL</mat-option>
+                        <mat-option value="mongodb">MongoDB</mat-option>
+                        <mat-option value="sqlite">SQLite</mat-option>
+                        <mat-option value="redis">Redis</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="form-field">
+                      <mat-label>Cloud Platform</mat-label>
+                      <mat-select formControlName="cloud">
+                        <mat-option value="aws">AWS</mat-option>
+                        <mat-option value="azure">Azure</mat-option>
+                        <mat-option value="gcp">Google Cloud</mat-option>
+                        <mat-option value="vercel">Vercel</mat-option>
+                        <mat-option value="netlify">Netlify</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+
+                  <!-- Dynamic Features Section -->
+                  <div class="features-section">
+                    <h4>Required Features</h4>
+                    <div formArrayName="features">
+                      <div *ngFor="let feature of featuresArray.controls; let i = index" 
+                           [formGroupName]="i" 
+                           class="feature-item">
+                        <mat-form-field appearance="outline" class="feature-name">
+                          <mat-label>Feature Name</mat-label>
+                          <input matInput formControlName="name">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="feature-priority">
+                          <mat-label>Priority</mat-label>
+                          <mat-select formControlName="priority">
+                            <mat-option value="high">High</mat-option>
+                            <mat-option value="medium">Medium</mat-option>
+                            <mat-option value="low">Low</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <button mat-icon-button 
+                                color="warn" 
+                                (click)="removeFeature(i)"
+                                type="button">
+                          <mat-icon>delete</mat-icon>
+                        </button>
+                      </div>
+                    </div>
+                    <button mat-stroked-button 
+                            (click)="addFeature()" 
+                            type="button"
+                            class="add-feature-btn">
+                      <mat-icon>add</mat-icon>
+                      Add Feature
+                    </button>
+                  </div>
+
+                  <div class="step-actions">
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-raised-button 
+                            color="primary" 
+                            matStepperNext 
+                            [disabled]="technicalForm.invalid">
+                      Next
+                    </button>
+                  </div>
+                </form>
+              </mat-step>
+
+              <!-- Step 3: Budget & Timeline -->
+              <mat-step [stepControl]="budgetForm" label="Budget & Timeline">
+                <form [formGroup]="budgetForm" class="step-form">
+                  <h3>Project Budget & Timeline</h3>
+                  
+                  <div class="form-row">
+                    <mat-form-field appearance="outline" class="form-field">
+                      <mat-label>Budget Range</mat-label>
+                      <mat-select formControlName="budgetRange" required>
+                        <mat-option value="under-10k">Under $10,000</mat-option>
+                        <mat-option value="10k-25k">$10,000 - $25,000</mat-option>
+                        <mat-option value="25k-50k">$25,000 - $50,000</mat-option>
+                        <mat-option value="50k-100k">$50,000 - $100,000</mat-option>
+                        <mat-option value="over-100k">Over $100,000</mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="budgetForm.get('budgetRange')?.hasError('required')">
+                        Budget range is required
+                      </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="form-field">
+                      <mat-label>Timeline (months)</mat-label>
+                      <input matInput 
+                             type="number" 
+                             formControlName="timeline" 
+                             min="1" 
+                             max="24" 
+                             required>
+                      <mat-error *ngIf="budgetForm.get('timeline')?.hasError('required')">
+                        Timeline is required
+                      </mat-error>
+                      <mat-error *ngIf="budgetForm.get('timeline')?.hasError('min')">
+                        Timeline must be at least 1 month
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="checkbox-group">
+                    <h4>Additional Services</h4>
+                    <mat-checkbox formControlName="maintenanceSupport">
+                      Ongoing Maintenance & Support
+                    </mat-checkbox>
+                    <mat-checkbox formControlName="training">
+                      Team Training
+                    </mat-checkbox>
+                    <mat-checkbox formControlName="documentation">
+                      Comprehensive Documentation
+                    </mat-checkbox>
+                    <mat-checkbox formControlName="testing">
+                      Quality Assurance Testing
+                    </mat-checkbox>
+                  </div>
+
+                  <mat-form-field appearance="outline" class="form-field full-width">
+                    <mat-label>Special Requirements</mat-label>
+                    <textarea matInput 
+                              formControlName="specialRequirements" 
+                              rows="3" 
+                              placeholder="Any special requirements or constraints...">
+                    </textarea>
+                  </mat-form-field>
+
+                  <div class="step-actions">
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-raised-button 
+                            color="primary" 
+                            matStepperNext 
+                            [disabled]="budgetForm.invalid">
+                      Next
+                    </button>
+                  </div>
+                </form>
+              </mat-step>
+
+              <!-- Step 4: Contact Information -->
+              <mat-step [stepControl]="contactForm" label="Contact Information">
+                <form [formGroup]="contactForm" class="step-form">
+                  <h3>Contact Details</h3>
+                  
+                  <div class="form-row">
+                    <mat-form-field appearance="outline" class="form-field">
+                      <mat-label>First Name</mat-label>
+                      <input matInput formControlName="firstName" required>
+                      <mat-error *ngIf="contactForm.get('firstName')?.hasError('required')">
+                        First name is required
+                      </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="form-field">
+                      <mat-label>Last Name</mat-label>
+                      <input matInput formControlName="lastName" required>
+                      <mat-error *ngIf="contactForm.get('lastName')?.hasError('required')">
+                        Last name is required
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-row">
+                    <mat-form-field appearance="outline" class="form-field">
+                      <mat-label>Email</mat-label>
+                      <input matInput type="email" formControlName="email" required>
+                      <mat-error *ngIf="contactForm.get('email')?.hasError('required')">
+                        Email is required
+                      </mat-error>
+                      <mat-error *ngIf="contactForm.get('email')?.hasError('email')">
+                        Please enter a valid email
+                      </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="form-field">
+                      <mat-label>Phone</mat-label>
+                      <input matInput type="tel" formControlName="phone">
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-row">
+                    <mat-form-field appearance="outline" class="form-field">
+                      <mat-label>Company</mat-label>
+                      <input matInput formControlName="company" required>
+                      <mat-error *ngIf="contactForm.get('company')?.hasError('required')">
+                        Company is required
+                      </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="form-field">
+                      <mat-label>Position</mat-label>
+                      <input matInput formControlName="position">
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-row">
+                    <mat-form-field appearance="outline" class="form-field">
+                      <mat-label>Preferred Contact Method</mat-label>
+                      <mat-select formControlName="preferredContact">
+                        <mat-option value="email">Email</mat-option>
+                        <mat-option value="phone">Phone</mat-option>
+                        <mat-option value="video">Video Call</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="form-field">
+                      <mat-label>Time Zone</mat-label>
+                      <mat-select formControlName="timezone">
+                        <mat-option value="UTC-8">Pacific Time (UTC-8)</mat-option>
+                        <mat-option value="UTC-5">Eastern Time (UTC-5)</mat-option>
+                        <mat-option value="UTC+0">GMT (UTC+0)</mat-option>
+                        <mat-option value="UTC+1">Central European Time (UTC+1)</mat-option>
+                        <mat-option value="UTC+8">China Standard Time (UTC+8)</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="step-actions">
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-raised-button 
+                            color="primary" 
+                            matStepperNext 
+                            [disabled]="contactForm.invalid">
+                      Review
+                    </button>
+                  </div>
+                </form>
+              </mat-step>
+
+              <!-- Step 5: Review & Submit -->
+              <mat-step label="Review & Submit">
+                <div class="review-section">
+                  <h3>Review Your Information</h3>
+                  
+                  <div class="review-cards">
+                    <mat-card class="review-card">
+                      <mat-card-header>
+                        <mat-card-title>Project Details</mat-card-title>
+                      </mat-card-header>
+                      <mat-card-content>
+                        <div class="review-item">
+                          <strong>Name:</strong> {{ basicInfoForm.get('projectName')?.value }}
+                        </div>
+                        <div class="review-item">
+                          <strong>Type:</strong> {{ basicInfoForm.get('projectType')?.value }}
+                        </div>
+                        <div class="review-item">
+                          <strong>Start Date:</strong> {{ basicInfoForm.get('startDate')?.value | date }}
+                        </div>
+                        <div class="review-item">
+                          <strong>Description:</strong> {{ basicInfoForm.get('description')?.value }}
+                        </div>
+                      </mat-card-content>
+                    </mat-card>
+
+                    <mat-card class="review-card">
+                      <mat-card-header>
+                        <mat-card-title>Technical Stack</mat-card-title>
+                      </mat-card-header>
+                      <mat-card-content>
+                        <div class="review-item">
+                          <strong>Frontend:</strong> {{ technicalForm.get('frontend')?.value?.join(', ') }}
+                        </div>
+                        <div class="review-item">
+                          <strong>Backend:</strong> {{ technicalForm.get('backend')?.value?.join(', ') }}
+                        </div>
+                        <div class="review-item">
+                          <strong>Database:</strong> {{ technicalForm.get('database')?.value }}
+                        </div>
+                        <div class="review-item">
+                          <strong>Cloud:</strong> {{ technicalForm.get('cloud')?.value }}
+                        </div>
+                      </mat-card-content>
+                    </mat-card>
+
+                    <mat-card class="review-card">
+                      <mat-card-header>
+                        <mat-card-title>Budget & Timeline</mat-card-title>
+                      </mat-card-header>
+                      <mat-card-content>
+                        <div class="review-item">
+                          <strong>Budget:</strong> {{ budgetForm.get('budgetRange')?.value }}
+                        </div>
+                        <div class="review-item">
+                          <strong>Timeline:</strong> {{ budgetForm.get('timeline')?.value }} months
+                        </div>
+                        <div class="review-item">
+                          <strong>Additional Services:</strong>
+                          <ul>
+                            <li *ngIf="budgetForm.get('maintenanceSupport')?.value">Maintenance & Support</li>
+                            <li *ngIf="budgetForm.get('training')?.value">Team Training</li>
+                            <li *ngIf="budgetForm.get('documentation')?.value">Documentation</li>
+                            <li *ngIf="budgetForm.get('testing')?.value">QA Testing</li>
+                          </ul>
+                        </div>
+                      </mat-card-content>
+                    </mat-card>
+
+                    <mat-card class="review-card">
+                      <mat-card-header>
+                        <mat-card-title>Contact Information</mat-card-title>
+                      </mat-card-header>
+                      <mat-card-content>
+                        <div class="review-item">
+                          <strong>Name:</strong> 
+                          {{ contactForm.get('firstName')?.value }} {{ contactForm.get('lastName')?.value }}
+                        </div>
+                        <div class="review-item">
+                          <strong>Email:</strong> {{ contactForm.get('email')?.value }}
+                        </div>
+                        <div class="review-item">
+                          <strong>Company:</strong> {{ contactForm.get('company')?.value }}
+                        </div>
+                        <div class="review-item">
+                          <strong>Preferred Contact:</strong> {{ contactForm.get('preferredContact')?.value }}
+                        </div>
+                      </mat-card-content>
+                    </mat-card>
+                  </div>
+
+                  <div class="step-actions">
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-raised-button 
+                            color="primary" 
+                            (click)="submitForm()"
+                            [disabled]="isSubmitting()">
+                      <mat-icon *ngIf="!isSubmitting()">send</mat-icon>
+                      <mat-icon *ngIf="isSubmitting()" class="spinning">hourglass_empty</mat-icon>
+                      {{ isSubmitting() ? 'Submitting...' : 'Submit Project' }}
+                    </button>
+                  </div>
+                </div>
+              </mat-step>
+            </mat-stepper>
+
+            <!-- Auto-save Indicator -->
+            <div class="auto-save-indicator" *ngIf="autoSaveStatus()">
+              <mat-icon>{{ autoSaveStatus() === 'saving' ? 'sync' : 'check_circle' }}</mat-icon>
+              <span>{{ autoSaveStatus() === 'saving' ? 'Saving...' : 'Saved' }}</span>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+
+    <!-- Real-time Features Tab -->
+    <mat-tab label="Real-time Features">
+      <div class="tab-content">
+        <div class="realtime-grid">
+          <!-- Live Data Updates -->
+          <mat-card class="realtime-card">
+            <mat-card-header>
+              <mat-card-title>Live Data Updates</mat-card-title>
+              <mat-card-subtitle>Real-time metrics and statistics</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="metrics-grid">
+                <div class="metric-item">
+                  <div class="metric-value">{{ liveMetrics().activeUsers }}</div>
+                  <div class="metric-label">Active Users</div>
+                </div>
+                <div class="metric-item">
+                  <div class="metric-value">{{ liveMetrics().totalProjects }}</div>
+                  <div class="metric-label">Total Projects</div>
+                </div>
+                <div class="metric-item">
+                  <div class="metric-value">{{ liveMetrics().completedTasks }}</div>
+                  <div class="metric-label">Completed Tasks</div>
+                </div>
+                <div class="metric-item">
+                  <div class="metric-value">{{ liveMetrics().revenue | currency }}</div>
+                  <div class="metric-label">Revenue</div>
+                </div>
+              </div>
+              
+              <div class="update-indicator">
+                <mat-icon class="pulse">sync</mat-icon>
+                <span>Updates every 3 seconds</span>
+              </div>
+            </mat-card-content>
+          </mat-card>
+
+          <!-- Error Handling Demo -->
+          <mat-card class="realtime-card">
+            <mat-card-header>
+              <mat-card-title>Error Handling</mat-card-title>
+              <mat-card-subtitle>Demonstrate error scenarios and recovery</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="error-demo-controls">
+                <button mat-raised-button 
+                        color="warn" 
+                        (click)="simulateError('network')">
+                  Simulate Network Error
+                </button>
+                <button mat-raised-button 
+                        color="warn" 
+                        (click)="simulateError('validation')">
+                  Simulate Validation Error
+                </button>
+                <button mat-raised-button 
+                        color="warn" 
+                        (click)="simulateError('server')">
+                  Simulate Server Error
+                </button>
+              </div>
+              
+              <div *ngIf="errorState()" class="error-display">
+                <mat-icon color="warn">error</mat-icon>
+                <div class="error-content">
+                  <h4>{{ errorState()?.title }}</h4>
+                  <p>{{ errorState()?.message }}</p>
+                  <button mat-button color="primary" (click)="retryOperation()">
+                    <mat-icon>refresh</mat-icon>
+                    Retry
+                  </button>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div> 

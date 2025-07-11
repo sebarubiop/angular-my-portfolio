@@ -1,0 +1,172 @@
+<div class="projects-container">
+  <div class="projects-header">
+    <h1 class="page-title">{{ 'projects.page_title' | translate }}</h1>
+    <p class="page-subtitle">{{ 'projects.page_subtitle' | translate }}</p>
+  </div>
+
+  <mat-tab-group class="projects-tabs" animationDuration="300ms">
+    <mat-tab [label]="'projects.all_projects' | translate">
+      <div class="tab-content">
+        <div class="projects-grid">
+          <mat-card *ngFor="let project of allProjects" class="project-card">
+            <div class="project-image-container">
+              <img [src]="project.image" [alt]="project.title" class="project-image" loading="lazy">
+              <div class="project-overlay">
+                <div class="overlay-content">
+                  <button mat-fab color="primary" class="project-action" *ngIf="project.liveUrl">
+                    <mat-icon>launch</mat-icon>
+                  </button>
+                  <button mat-fab class="project-action github-btn" *ngIf="project.githubUrl">
+                    <mat-icon>code</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <mat-card-content class="project-content">
+              <div class="project-header">
+                <h3 class="project-title">{{ project.title }}</h3>
+                <div class="project-category">{{ project.category }}</div>
+              </div>
+              
+              <p class="project-description">{{ project.description }}</p>
+              
+              <div class="project-features">
+                <h5 class="features-title">{{ 'projects.key_features' | translate }}</h5>
+                <ul class="features-list">
+                  <li *ngFor="let feature of project.features">{{ feature }}</li>
+                </ul>
+              </div>
+              
+              <div class="project-tech">
+                <mat-chip-set>
+                  <mat-chip *ngFor="let tech of project.technologies" class="tech-chip">
+                    {{ tech }}
+                  </mat-chip>
+                </mat-chip-set>
+              </div>
+            </mat-card-content>
+            
+            <mat-card-actions class="project-actions">
+              <button mat-stroked-button color="primary" (click)="openProjectDetails(project)">
+                <mat-icon>info</mat-icon>
+                {{ 'common.details' | translate }}
+              </button>
+              <button mat-button color="primary" *ngIf="project.liveUrl">
+                <mat-icon>launch</mat-icon>
+                {{ 'common.live_demo' | translate }}
+              </button>
+              <button mat-button *ngIf="project.githubUrl">
+                <mat-icon>code</mat-icon>
+                {{ 'common.source' | translate }}
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab [label]="'projects.featured' | translate">
+      <div class="tab-content">
+        <div class="featured-projects">
+          <div *ngFor="let project of featuredProjects" class="featured-project">
+            <mat-card class="featured-card">
+              <div class="featured-content">
+                <div class="featured-info">
+                  <span class="featured-badge">{{ 'projects.featured_project' | translate }}</span>
+                  <h2 class="featured-title">{{ project.title }}</h2>
+                  <p class="featured-description">{{ project.description }}</p>
+                  
+                  <div class="featured-highlights">
+                    <h4 class="highlights-title">{{ 'projects.project_highlights' | translate }}</h4>
+                    <ul class="highlights-list">
+                      <li *ngFor="let highlight of project.highlights">{{ highlight }}</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="featured-tech">
+                    <mat-chip-set>
+                      <mat-chip *ngFor="let tech of project.technologies" class="featured-tech-chip">
+                        {{ tech }}
+                      </mat-chip>
+                    </mat-chip-set>
+                  </div>
+                  
+                  <div class="featured-actions">
+                    <button mat-raised-button color="primary" *ngIf="project.liveUrl">
+                      <mat-icon>launch</mat-icon>
+                      {{ 'projects.view_live_project' | translate }}
+                    </button>
+                    <button mat-stroked-button color="primary" *ngIf="project.githubUrl">
+                      <mat-icon>code</mat-icon>
+                      {{ 'projects.view_source' | translate }}
+                    </button>
+                  </div>
+                </div>
+                
+                <div class="featured-image">
+                  <img [src]="project.image" [alt]="project.title" loading="lazy">
+                </div>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab [label]="'projects.open_source' | translate">
+      <div class="tab-content">
+        <div class="opensource-section">
+          <h2 class="section-title">{{ 'projects.open_source_contributions' | translate }}</h2>
+          <div class="opensource-grid">
+            <mat-card *ngFor="let project of openSourceProjects" class="opensource-card">
+              <mat-card-content>
+                <div class="opensource-header">
+                  <div class="opensource-icon">
+                    <mat-icon>{{ project.icon }}</mat-icon>
+                  </div>
+                  <div class="opensource-info">
+                    <h3 class="opensource-title">{{ project.title }}</h3>
+                    <p class="opensource-type">{{ project.type }}</p>
+                  </div>
+                  <div class="opensource-stats">
+                    <div class="stat-item">
+                      <mat-icon>star</mat-icon>
+                      <span>{{ project.stars }}</span>
+                    </div>
+                    <div class="stat-item">
+                      <mat-icon>call_split</mat-icon>
+                      <span>{{ project.forks }}</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <p class="opensource-description">{{ project.description }}</p>
+                
+                <div class="opensource-contribution">
+                  <strong>{{ 'projects.my_contribution' | translate }}</strong>
+                  <p>{{ project.contribution }}</p>
+                </div>
+                
+                <div class="opensource-tech">
+                  <mat-chip-set>
+                    <mat-chip *ngFor="let tech of project.technologies" class="tech-chip">
+                      {{ tech }}
+                    </mat-chip>
+                  </mat-chip-set>
+                </div>
+              </mat-card-content>
+              
+              <mat-card-actions>
+                <button mat-button color="primary">
+                  <mat-icon>launch</mat-icon>
+                  {{ 'common.view_on_github' | translate }}
+                </button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div> 

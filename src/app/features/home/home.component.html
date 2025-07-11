@@ -1,0 +1,107 @@
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          {{ 'home.hero_title' | translate }}
+        </h1>
+        <h2 class="hero-subtitle">{{ 'home.hero_subtitle' | translate }}</h2>
+        <p class="hero-description">
+          {{ 'home.hero_description' | translate }}
+        </p>
+        
+        <div class="hero-actions">
+          <button 
+            mat-raised-button 
+            color="primary" 
+            routerLink="/projects"
+            class="primary-cta">
+            <mat-icon>code</mat-icon>
+            {{ 'home.view_my_work' | translate }}
+          </button>
+          <button 
+            mat-stroked-button 
+            color="primary" 
+            routerLink="/contact"
+            class="secondary-cta">
+            <mat-icon>contact_mail</mat-icon>
+            {{ 'home.get_in_touch' | translate }}
+          </button>
+        </div>
+      </div>
+      
+      <div class="hero-image">
+        <div class="image-container">
+          <img 
+            src="https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=500&h=600&fit=crop" 
+            alt="Sebastian Rubio - Frontend Developer"
+            loading="eager">
+          <div class="image-overlay"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack Section -->
+  <section class="tech-stack-section">
+    <h3 class="section-title">{{ 'home.technologies_title' | translate }}</h3>
+    <div class="tech-grid">
+      <mat-chip-set aria-label="Technology stack">
+        <mat-chip *ngFor="let tech of technologies" class="tech-chip">
+          <mat-icon class="tech-icon">{{ tech.icon }}</mat-icon>
+          {{ tech.name }}
+        </mat-chip>
+      </mat-chip-set>
+    </div>
+  </section>
+
+  <!-- Quick Stats Section -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <mat-card *ngFor="let stat of stats" class="stat-card">
+        <mat-card-content>
+          <div class="stat-icon">
+            <mat-icon>{{ stat.icon }}</mat-icon>
+          </div>
+          <div class="stat-number">{{ stat.number }}</div>
+          <div class="stat-label">{{ stat.labelKey | translate }}</div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Featured Work Section -->
+  <section class="featured-section">
+    <h3 class="section-title">{{ 'home.featured_work_title' | translate }}</h3>
+    <div class="featured-grid">
+      <mat-card *ngFor="let project of featuredProjects" class="project-card">
+        <div class="project-image">
+          <img [src]="project.image" [alt]="project.title" loading="lazy">
+        </div>
+        <mat-card-content>
+          <h4 class="project-title">{{ project.title }}</h4>
+          <p class="project-description">{{ project.description }}</p>
+          <div class="project-tech">
+            <mat-chip *ngFor="let tech of project.technologies" class="tech-chip-small">
+              {{ tech }}
+            </mat-chip>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="primary">
+            <mat-icon>launch</mat-icon>
+            {{ 'common.view_project' | translate }}
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    
+    <div class="section-cta">
+      <button mat-stroked-button color="primary" routerLink="/projects" class="view-all-btn">
+        {{ 'home.view_all_projects' | translate }}
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
+    </div>
+  </section>
+</div> 

@@ -1,0 +1,323 @@
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 0 16px;
+  color: var(--on-surface-color);
+}
+
+.page-subtitle {
+  font-size: 1.25rem;
+  color: var(--on-surface-variant-color);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0 32px;
+  color: var(--on-surface-color);
+}
+
+/* Story Section */
+.story-section {
+  margin-bottom: 64px;
+}
+
+.story-card {
+  overflow: hidden;
+}
+
+.story-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.story-paragraph {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin: 0 0 24px;
+  color: var(--on-surface-variant-color);
+}
+
+.story-image {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Skills Section */
+.skills-section {
+  margin-bottom: 64px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+.skill-category-card {
+  transition: transform 0.3s ease;
+}
+
+.skill-category-card:hover {
+  transform: translateY(-4px);
+}
+
+.category-icon {
+  background-color: var(--primary-color);
+  color: var(--on-primary-color);
+}
+
+.skills-list {
+  margin-top: 16px;
+}
+
+.skill-item {
+  margin-bottom: 20px;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.skill-name {
+  font-weight: 500;
+  color: var(--on-surface-color);
+}
+
+.skill-level {
+  font-size: 0.875rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.skill-progress {
+  height: 6px;
+  border-radius: 3px;
+}
+
+/* Education Section */
+.education-section {
+  margin-bottom: 64px;
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.education-card {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.education-card:hover {
+  transform: translateY(-4px);
+}
+
+.education-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: var(--on-primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.education-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--on-surface-color);
+}
+
+.education-institution {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 4px;
+  color: var(--primary-color);
+}
+
+.education-year {
+  font-size: 0.875rem;
+  margin: 0 0 12px;
+  color: var(--on-surface-variant-color);
+}
+
+.education-description {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--on-surface-variant-color);
+}
+
+/* Interests Section */
+.interests-section {
+  margin-bottom: 64px;
+}
+
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.interest-item {
+  text-align: center;
+  padding: 24px;
+  border-radius: 12px;
+  background-color: var(--surface-variant-color);
+  transition: transform 0.3s ease;
+}
+
+.interest-item:hover {
+  transform: translateY(-4px);
+}
+
+.interest-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  color: var(--primary-color);
+  margin-bottom: 16px;
+}
+
+.interest-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--on-surface-color);
+}
+
+.interest-description {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--on-surface-variant-color);
+}
+
+/* Values Section */
+.values-section {
+  margin-bottom: 40px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.value-item {
+  text-align: center;
+}
+
+.value-icon {
+  font-size: 56px;
+  width: 56px;
+  height: 56px;
+  color: var(--primary-color);
+  margin-bottom: 16px;
+}
+
+.value-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 12px;
+  color: var(--on-surface-color);
+}
+
+.value-description {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0;
+  color: var(--on-surface-variant-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-container {
+    padding: 0 16px 40px;
+  }
+
+  .page-title {
+    font-size: 2.5rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.125rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .story-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .education-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .interests-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .story-paragraph {
+    font-size: 1rem;
+  }
+
+  .interests-grid {
+    grid-template-columns: 1fr;
+  }
+} 

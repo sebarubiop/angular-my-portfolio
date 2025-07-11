@@ -1,0 +1,40 @@
+<div class="sidenav-content">
+  <div class="profile-section">
+    <div class="profile-avatar">
+      <img 
+        src="https://res.cloudinary.com/dr0a1g6rs/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1752130331/myface_ldvrx6.jpg" 
+        alt="Sebastian Rubio"
+        loading="lazy">
+    </div>
+    <h3 class="profile-name">{{ 'header.title' | translate }}</h3>
+    <p class="profile-role">{{ 'header.subtitle' | translate }}</p>
+    <p class="profile-experience">{{ 'sidenav.experience' | translate }}</p>
+  </div>
+  
+  <mat-divider></mat-divider>
+  
+  <nav class="navigation">
+    <mat-nav-list>
+      <a 
+        *ngFor="let item of navigationItems"
+        mat-list-item 
+        [routerLink]="item.route"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: item.route === '/' }"
+        (click)="onNavigate()"
+        class="nav-item">
+        <mat-icon matListItemIcon class="nav-icon">{{ item.icon }}</mat-icon>
+        <div matListItemTitle class="nav-title">{{ item.labelKey | translate }}</div>
+        <div matListItemLine class="nav-description">{{ item.descriptionKey | translate }}</div>
+      </a>
+    </mat-nav-list>
+  </nav>
+  
+  <div class="sidenav-footer">
+    <mat-divider></mat-divider>
+    <div class="footer-content">
+      <p class="footer-text">{{ 'sidenav.built_with' | translate }}</p>
+      <p class="footer-text">{{ 'sidenav.copyright' | translate }}</p>
+    </div>
+  </div>
+</div> 

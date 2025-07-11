@@ -1,0 +1,110 @@
+<div class="about-container">
+  <div class="about-header">
+    <h1 class="page-title">{{ 'about.page_title' | translate }}</h1>
+    <p class="page-subtitle">{{ 'about.page_subtitle' | translate }}</p>
+  </div>
+
+  <div class="about-content">
+    <!-- Personal Story Section -->
+    <section class="story-section">
+      <mat-card class="story-card">
+        <mat-card-content>
+          <div class="story-content">
+            <div class="story-text">
+              <h2 class="section-title">{{ 'about.my_journey' | translate }}</h2>
+              <p class="story-paragraph">
+                {{ 'about.story_paragraph_1' | translate }}
+              </p>
+              <p class="story-paragraph">
+                {{ 'about.story_paragraph_2' | translate }}
+              </p>
+              <p class="story-paragraph">
+                {{ 'about.story_paragraph_3' | translate }}
+              </p>
+            </div>
+            <div class="story-image">
+              <img 
+                src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop" 
+                alt="Sebastian working on code"
+                loading="lazy">
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+      <h2 class="section-title">{{ 'about.technical_skills' | translate }}</h2>
+      <div class="skills-grid">
+        <mat-card *ngFor="let category of skillCategories" class="skill-category-card">
+          <mat-card-header>
+            <mat-icon mat-card-avatar class="category-icon">{{ category.icon }}</mat-icon>
+            <mat-card-title>{{ category.nameKey | translate }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="skills-list">
+              <div *ngFor="let skill of category.skills" class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">{{ skill.name }}</span>
+                  <span class="skill-level">{{ skill.level }}%</span>
+                </div>
+                <mat-progress-bar 
+                  mode="determinate" 
+                  [value]="skill.level"
+                  class="skill-progress">
+                </mat-progress-bar>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </section>
+
+    <!-- Certifications & Education Section -->
+    <section class="education-section">
+      <h2 class="section-title">{{ 'about.education_certifications' | translate }}</h2>
+      <div class="education-grid">
+        <mat-card *ngFor="let item of education" class="education-card">
+          <mat-card-content>
+            <div class="education-icon">
+              <mat-icon>{{ item.icon }}</mat-icon>
+            </div>
+            <h3 class="education-title">{{ item.title }}</h3>
+            <p class="education-institution">{{ item.institution }}</p>
+            <p class="education-year">{{ item.year }}</p>
+            <p class="education-description">{{ item.description }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </section>
+
+    <!-- Interests Section -->
+    <section class="interests-section">
+      <h2 class="section-title">{{ 'about.interests_hobbies' | translate }}</h2>
+      <div class="interests-grid">
+        <div *ngFor="let interest of interests" class="interest-item">
+          <mat-icon class="interest-icon">{{ interest.icon }}</mat-icon>
+          <h4 class="interest-title">{{ interest.titleKey | translate }}</h4>
+          <p class="interest-description">{{ interest.descriptionKey | translate }}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+      <mat-card class="values-card">
+        <mat-card-content>
+          <h2 class="section-title">{{ 'about.core_values' | translate }}</h2>
+          <div class="values-grid">
+            <div *ngFor="let value of values" class="value-item">
+              <mat-icon class="value-icon">{{ value.icon }}</mat-icon>
+              <h4 class="value-title">{{ value.titleKey | translate }}</h4>
+              <p class="value-description">{{ value.descriptionKey | translate }}</p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </section>
+  </div>
+</div> 
