@@ -12,6 +12,23 @@
   color: var(--on-primary-color);
 }
 
+.profile-avatar-link {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  border-radius: 50%;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+  }
+}
+
 .profile-avatar {
   width: 80px;
   height: 80px;
@@ -20,6 +37,12 @@
   overflow: hidden;
   border: 3px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.profile-avatar-link:hover .profile-avatar {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .profile-avatar img {
@@ -100,6 +123,47 @@
   margin: 4px 0;
   font-size: 0.75rem;
   color: var(--on-surface-variant-color);
+}
+
+// Dark theme improvements
+:host-context(.dark-theme) {
+  .sidenav-content {
+    background-color: #2A2A2A; // Lighter than the default dark surface
+    border-right: 1px solid #404040;
+  }
+
+  .nav-item {
+    color: #E0E0E0; // Lighter text for better readability
+    
+    &:hover {
+      background-color: rgba(121, 134, 203, 0.15); // Semi-transparent primary color
+      color: #7986CB; // Primary color for hover
+    }
+
+    &.active {
+      background-color: rgba(121, 134, 203, 0.2);
+      color: #7986CB;
+      border-left: 3px solid #7986CB;
+    }
+  }
+
+  .nav-title {
+    color: #F5F5F5; // Even lighter for titles
+  }
+
+  .nav-description {
+    color: #B0B0B0; // Good contrast for descriptions
+  }
+
+  .footer-text {
+    color: #999999; // Readable gray for footer
+  }
+
+  // Enhanced profile section for dark mode
+  .profile-section {
+    background: linear-gradient(135deg, #7986CB, #F06292);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
 }
 
 @media (max-width: 768px) {

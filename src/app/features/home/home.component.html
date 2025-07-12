@@ -1,55 +1,58 @@
-<div class="home-container">
+<div class="home">
   <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1 class="hero-title">
+  <section class="home__hero">
+    <div class="home__hero-content">
+      <div class="home__hero-text">
+        <div class="home__hero-greeting">👋</div>
+        <h1 class="home__hero-title">
           {{ 'home.hero_title' | translate }}
+          <span class="home__hero-title--highlight">Sebastian Rubio</span>
         </h1>
-        <h2 class="hero-subtitle">{{ 'home.hero_subtitle' | translate }}</h2>
-        <p class="hero-description">
+        <h2 class="home__hero-subtitle">{{ 'home.hero_subtitle' | translate }}</h2>
+        <p class="home__hero-description">
           {{ 'home.hero_description' | translate }}
         </p>
         
-        <div class="hero-actions">
+        <div class="home__hero-actions">
           <button 
             mat-raised-button 
             color="primary" 
             routerLink="/projects"
-            class="primary-cta">
-            <mat-icon>code</mat-icon>
+            class="home__hero-cta">
+            <mat-icon>rocket_launch</mat-icon>
             {{ 'home.view_my_work' | translate }}
           </button>
           <button 
             mat-stroked-button 
             color="primary" 
             routerLink="/contact"
-            class="secondary-cta">
-            <mat-icon>contact_mail</mat-icon>
+            class="home__hero-cta home__hero-cta--secondary">
+            <mat-icon>chat</mat-icon>
             {{ 'home.get_in_touch' | translate }}
           </button>
         </div>
       </div>
       
-      <div class="hero-image">
-        <div class="image-container">
+      <div class="home__hero-image">
+        <div class="home__hero-image-container">
           <img 
             src="https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=500&h=600&fit=crop" 
             alt="Sebastian Rubio - Frontend Developer"
             loading="eager">
-          <div class="image-overlay"></div>
+          <div class="home__hero-image-overlay"></div>
+          <div class="home__hero-image-decoration"></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Tech Stack Section -->
-  <section class="tech-stack-section">
-    <h3 class="section-title">{{ 'home.technologies_title' | translate }}</h3>
-    <div class="tech-grid">
+  <section class="home__section home__section--centered">
+    <h3 class="home__section-title">{{ 'home.technologies_title' | translate }}</h3>
+    <div class="home__tech-grid">
       <mat-chip-set aria-label="Technology stack">
-        <mat-chip *ngFor="let tech of technologies" class="tech-chip">
-          <mat-icon class="tech-icon">{{ tech.icon }}</mat-icon>
+        <mat-chip *ngFor="let tech of technologies" class="home__tech-chip">
+          <mat-icon class="home__tech-chip-icon">{{ tech.icon }}</mat-icon>
           {{ tech.name }}
         </mat-chip>
       </mat-chip-set>
@@ -57,33 +60,33 @@
   </section>
 
   <!-- Quick Stats Section -->
-  <section class="stats-section">
-    <div class="stats-grid">
-      <mat-card *ngFor="let stat of stats" class="stat-card">
+  <section class="home__section">
+    <div class="home__stats-grid">
+      <mat-card *ngFor="let stat of stats" class="home__stats-card">
         <mat-card-content>
-          <div class="stat-icon">
+          <div class="home__stats-icon">
             <mat-icon>{{ stat.icon }}</mat-icon>
           </div>
-          <div class="stat-number">{{ stat.number }}</div>
-          <div class="stat-label">{{ stat.labelKey | translate }}</div>
+          <div class="home__stats-number">{{ stat.number }}</div>
+          <div class="home__stats-label">{{ stat.labelKey | translate }}</div>
         </mat-card-content>
       </mat-card>
     </div>
   </section>
 
   <!-- Featured Work Section -->
-  <section class="featured-section">
-    <h3 class="section-title">{{ 'home.featured_work_title' | translate }}</h3>
-    <div class="featured-grid">
-      <mat-card *ngFor="let project of featuredProjects" class="project-card">
-        <div class="project-image">
+  <section class="home__section">
+    <h3 class="home__section-title">{{ 'home.featured_work_title' | translate }}</h3>
+    <div class="home__featured-grid">
+      <mat-card *ngFor="let project of featuredProjects" class="home__featured-card">
+        <div class="home__featured-image">
           <img [src]="project.image" [alt]="project.title" loading="lazy">
         </div>
-        <mat-card-content>
-          <h4 class="project-title">{{ project.title }}</h4>
-          <p class="project-description">{{ project.description }}</p>
-          <div class="project-tech">
-            <mat-chip *ngFor="let tech of project.technologies" class="tech-chip-small">
+        <mat-card-content class="home__featured-content">
+          <h4 class="home__featured-title">{{ project.title }}</h4>
+          <p class="home__featured-description">{{ project.description }}</p>
+          <div class="home__featured-tech">
+            <mat-chip *ngFor="let tech of project.technologies" class="home__featured-tech-chip">
               {{ tech }}
             </mat-chip>
           </div>
@@ -97,8 +100,8 @@
       </mat-card>
     </div>
     
-    <div class="section-cta">
-      <button mat-stroked-button color="primary" routerLink="/projects" class="view-all-btn">
+    <div class="home__featured-cta">
+      <button mat-stroked-button color="primary" routerLink="/projects" class="home__featured-btn">
         {{ 'home.view_all_projects' | translate }}
         <mat-icon>arrow_forward</mat-icon>
       </button>

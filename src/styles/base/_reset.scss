@@ -1,0 +1,154 @@
+// Base reset and normalization styles
+// Modern CSS reset with BEM-friendly approach
+
+@use '../abstracts/mixins' as *;
+
+// Box sizing
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// Remove default margins
+* {
+  margin: 0;
+}
+
+// HTML and body setup
+html {
+  height: 100%;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+
+  @include respond-to('mobile') {
+    font-size: 14px;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: var(--font-family-primary);
+  color: var(--on-background-color);
+  background-color: var(--background-color);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Remove list styles
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+// Links
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+
+  &:hover {
+    color: var(--primary-color-dark);
+    text-decoration: underline;
+  }
+
+  @include focus-visible;
+}
+
+// Images
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+// Form elements
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  
+  @include focus-visible;
+}
+
+// Remove button styling
+button,
+input[type="submit"],
+input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+// Table
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// Prevent text overflow
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+// Root stacking context
+#root,
+#__next {
+  isolation: isolate;
+}
+
+// Improve focus accessibility
+:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+// Remove focus outline for mouse users
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-variant-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: var(--border-radius-sm);
+
+  &:hover {
+    background: var(--divider-color);
+  }
+} 

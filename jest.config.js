@@ -1,7 +1,6 @@
 module.exports = {
   preset: 'jest-preset-angular',
   setupFilesAfterEnv: ['<rootDir>/src/setup-jest.ts'],
-  globalSetup: 'jest-preset-angular/global-setup',
   testEnvironment: 'jsdom',
   transform: {
     '^.+\\.(ts|js|mjs|html|svg)$': [
@@ -30,7 +29,7 @@ module.exports = {
       statements: 80,
     },
   },
-  moduleNameMapping: {
+  moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^@app/(.*)$': '<rootDir>/src/app/$1',
     '^@core/(.*)$': '<rootDir>/src/app/core/$1',

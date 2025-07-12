@@ -1,0 +1,81 @@
+// Dark theme styles
+// Overrides CSS custom properties for dark theme
+
+.dark-theme {
+  // Primary Colors
+  --primary-color: #7986CB;
+  --primary-color-light: #3F51B5;
+  --primary-color-dark: #303F9F;
+  --on-primary-color: #000000;
+
+  // Secondary Colors
+  --secondary-color: #F06292;
+  --secondary-color-light: #E91E63;
+  --secondary-color-dark: #C2185B;
+  --on-secondary-color: #000000;
+
+  // Surface Colors
+  --surface-color: #1E1E1E;
+  --surface-variant-color: #2A2A2A;
+  --on-surface-color: #FFFFFF;
+  --on-surface-variant-color: #CCCCCC;
+
+  // Background Colors
+  --background-color: #121212;
+  --on-background-color: #FFFFFF;
+
+  // Border and Divider
+  --border-color: #333333;
+  --divider-color: #444444;
+  --outline-color: #333333;
+
+  // Status Colors (slightly adjusted for dark theme)
+  --success-color: #66BB6A;
+  --warning-color: #FFB74D;
+  --error-color: #EF5350;
+  --info-color: #42A5F5;
+
+  // Component overrides for dark theme
+  .mat-mdc-card {
+    background-color: var(--surface-color);
+    color: var(--on-surface-color);
+  }
+
+  .mat-mdc-button-base {
+    color: var(--on-surface-color);
+  }
+
+  .mat-mdc-form-field {
+    .mat-mdc-form-field-outline {
+      color: var(--outline-color);
+    }
+
+    .mat-mdc-form-field-label {
+      color: var(--on-surface-variant-color);
+    }
+  }
+
+  // Scrollbar styling for dark theme
+  ::-webkit-scrollbar-track {
+    background: var(--background-color);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+
+    &:hover {
+      background: var(--divider-color);
+    }
+  }
+
+  // Code blocks in dark theme
+  code {
+    background-color: var(--surface-variant-color);
+    color: var(--on-surface-color);
+  }
+
+  pre {
+    background-color: var(--surface-variant-color);
+    color: var(--on-surface-color);
+  }
+} 

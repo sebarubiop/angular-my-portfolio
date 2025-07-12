@@ -1,0 +1,116 @@
+// SCSS Variables and CSS Custom Properties
+// Using CSS custom properties for theming and SCSS variables for build-time constants
+
+// Breakpoints (SCSS variables for mixins)
+$breakpoints: (
+  'mobile': 768px,
+  'tablet': 1024px,
+  'desktop': 1200px,
+  'wide': 1400px
+);
+
+// Z-index map
+$z-index: (
+  'dropdown': 1000,
+  'header': 1100,
+  'overlay': 1200,
+  'modal': 1300,
+  'tooltip': 1400
+);
+
+// CSS Custom Properties for theming
+:root {
+  // Primary Colors
+  --primary-color: #3F51B5;
+  --primary-color-light: #C5CAE9;
+  --primary-color-dark: #303F9F;
+  --on-primary-color: #FFFFFF;
+
+  // Secondary Colors
+  --secondary-color: #E91E63;
+  --secondary-color-light: #F8BBD9;
+  --secondary-color-dark: #C2185B;
+  --on-secondary-color: #FFFFFF;
+
+  // Surface Colors
+  --surface-color: #FFFFFF;
+  --surface-variant-color: #F5F5F5;
+  --on-surface-color: #212121;
+  --on-surface-variant-color: #757575;
+
+  // Background Colors
+  --background-color: #FAFAFA;
+  --on-background-color: #212121;
+
+  // Border and Divider
+  --border-color: #E0E0E0;
+  --divider-color: #BDBDBD;
+  --outline-color: #E0E0E0;
+
+  // Status Colors
+  --success-color: #4CAF50;
+  --warning-color: #FF9800;
+  --error-color: #F44336;
+  --info-color: #2196F3;
+
+  // Shadows
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-md: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  --shadow-xl: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+
+  // Typography
+  --font-family-primary: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --font-family-mono: 'Roboto Mono', 'Courier New', monospace;
+  --font-size-base: 16px;
+  --line-height-base: 1.5;
+  --line-height-tight: 1.2;
+  --line-height-loose: 1.6;
+
+  // Font weights
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  // Font sizes
+  --font-size-xs: 0.75rem;   // 12px
+  --font-size-sm: 0.875rem;  // 14px
+  --font-size-md: 1rem;      // 16px
+  --font-size-lg: 1.125rem;  // 18px
+  --font-size-xl: 1.25rem;   // 20px
+  --font-size-2xl: 1.5rem;   // 24px
+  --font-size-3xl: 1.875rem; // 30px
+  --font-size-4xl: 2.25rem;  // 36px
+  --font-size-5xl: 3rem;     // 48px
+
+  // Spacing scale
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  --spacing-4xl: 96px;
+
+  // Border radius
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+  --border-radius-2xl: 24px;
+  --border-radius-full: 9999px;
+
+  // Transitions
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --transition-bounce: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  // Component specific sizes
+  --header-height: 64px;
+  --sidebar-width: 280px;
+  --max-content-width: 1200px;
+} 

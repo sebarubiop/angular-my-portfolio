@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -31,6 +31,7 @@ import { TranslateModule } from '@ngx-translate/core';
 export class ContactComponent implements OnInit {
   contactForm: FormGroup;
   isSubmitting = false;
+  isBrowser: boolean;
 
   faqs = [
     {
@@ -59,21 +60,33 @@ export class ContactComponent implements OnInit {
     }
   ];
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    @Inject(PLATFORM_ID) platformId: Object
+  ) {
+    this.isBrowser = isPlatformBrowser(platformId);
+    
+    // Initialize form with proper control names to match HTML template
     this.contactForm = this.fb.group({
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      phone: [''],
+      name: [''],
+      email: [''],
+      subject: [''],
       company: [''],
       projectType: [''],
-      budgetRange: [''],
-      message: ['', [Validators.required, Validators.minLength(10)]]
+      budget: [''],
+      message: ['']
     });
   }
 
   ngOnInit(): void {
-    // Initialize component
+    // Re-initialize validators when running in browser
+    if (this.isBrowser) {
+      this.contactForm.get('name')?.setValidators([Validators.required]);
+      this.contactForm.get('email')?.setValidators([Validators.required, Validators.email]);
+      this.contactForm.get('subject')?.setValidators([Validators.required]);
+      this.contactForm.get('message')?.setValidators([Validators.required, Validators.minLength(10)]);
+      this.contactForm.updateValueAndValidity();
+    }
   }
 
   onSubmit(): void {

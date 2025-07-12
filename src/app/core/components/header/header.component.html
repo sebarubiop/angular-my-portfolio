@@ -1,45 +1,46 @@
-<mat-toolbar class="header-toolbar">
+<div class="header">
   <button 
     *ngIf="showMenuButton"
     mat-icon-button 
     (click)="menuClick.emit()"
-    class="menu-button"
+    class="header__menu-btn"
     [attr.aria-label]="'header.toggle_menu' | translate">
     <mat-icon>menu</mat-icon>
   </button>
   
-  <div class="header-content">
-    <h1 class="header-title">{{ 'header.title' | translate }}</h1>
-    <span class="header-subtitle">{{ 'header.subtitle' | translate }}</span>
+  <div class="header__content">
+    <div class="header__brand">
+      <h1 class="header__brand-title">{{ 'header.title' | translate }}</h1>
+      <span class="header__brand-subtitle">{{ 'header.subtitle' | translate }}</span>
+    </div>
   </div>
   
-  <div class="header-actions">
+  <div class="header__actions">
     <!-- Language Selector -->
     <button 
-      mat-icon-button 
       [matMenuTriggerFor]="languageMenu"
-      class="action-button"
+      class="header__action-btn header__action-btn--circular"
+      [class.header__action-btn--active]="languageService.language() !== 'en'"
       [matTooltip]="'header.select_language' | translate">
-      <span class="flag-icon">{{ languageService.getCurrentLanguageConfig().flag }}</span>
+      <span class="header__flag-icon">{{ languageService.getCurrentLanguageConfig().flag }}</span>
     </button>
-    <mat-menu #languageMenu="matMenu">
+    <mat-menu #languageMenu="matMenu" class="header__menu">
       <button 
         *ngFor="let lang of languageService.availableLanguages"
         mat-menu-item 
         (click)="languageService.setLanguage(lang.code)"
         [class.active]="languageService.language() === lang.code">
-        <span class="flag-icon">{{ lang.flag }}</span>
+        <span class="header__flag-icon">{{ lang.flag }}</span>
         <span>{{ lang.name }}</span>
       </button>
     </mat-menu>
     
     <!-- Theme Toggle -->
     <button 
-      mat-icon-button 
       (click)="themeService.toggleTheme()"
-      class="action-button theme-toggle"
+      class="header__action-btn header__action-btn--circular header__action-btn--theme"
       [matTooltip]="themeService.isDarkMode() ? ('header.switch_to_light' | translate) : ('header.switch_to_dark' | translate)">
       <mat-icon>{{ themeService.isDarkMode() ? 'light_mode' : 'dark_mode' }}</mat-icon>
     </button>
   </div>
-</mat-toolbar> 
+</div> 

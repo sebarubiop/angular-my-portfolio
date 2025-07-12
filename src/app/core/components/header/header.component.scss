@@ -1,88 +1,268 @@
-.header-toolbar {
-  background-color: var(--surface-color);
+// Header component styles
+// Modern, aesthetic design with enhanced visual appeal
+
+@use 'mixins' as *;
+
+.header {
+  @include flex-between;
+  background: linear-gradient(135deg, var(--surface-color) 0%, var(--surface-variant-color) 100%);
   color: var(--on-surface-color);
   border-bottom: 1px solid var(--border-color);
-  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: z('header');
+  padding: 0 var(--spacing-2xl);
+  height: 80px;
+  transition: all var(--transition-normal);
+
+  @include respond-to('mobile') {
+    padding: 0 var(--spacing-lg);
+    height: 70px;
+  }
+
+  &__menu-btn {
+    @include button-ghost;
+    padding: var(--spacing-md);
+    margin-right: var(--spacing-lg);
+    color: var(--primary-color);
+    border-radius: var(--border-radius-lg);
+    background: rgba(var(--primary-color), 0.1);
+    border: 1px solid rgba(var(--primary-color), 0.2);
+
+    &:hover {
+      background: var(--primary-color);
+      color: var(--on-primary-color);
+      transform: scale(1.05);
+      box-shadow: var(--shadow-md);
+    }
+
+    @include respond-to('mobile') {
+      margin-right: var(--spacing-md);
+      padding: var(--spacing-sm);
+    }
+  }
+
+  &__content {
+    @include flex-center;
+    gap: var(--spacing-lg);
+    flex: 1;
+    justify-content: flex-start;
+  }
+
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border-radius: var(--border-radius-full);
+    }
+
+    &-title {
+      @include heading-base;
+      font-size: var(--font-size-3xl);
+      font-weight: var(--font-weight-bold);
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 2px;
+
+      @include respond-to('mobile') {
+        font-size: var(--font-size-xl);
+      }
+    }
+
+    &-subtitle {
+      @include small-text;
+      font-weight: var(--font-weight-medium);
+      opacity: 0.8;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+
+      @include respond-to('mobile') {
+        font-size: var(--font-size-xs);
+      }
+    }
+  }
+
+  &__actions {
+    @include flex-center;
+    gap: var(--spacing-md);
+
+    @include respond-to('mobile') {
+      gap: var(--spacing-sm);
+    }
+  }
+
+  &__action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-normal);
+    color: var(--on-surface-color);
+
+    // Default rectangular style (for menu button)
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-lg);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left var(--transition-normal);
+    }
+
+    &:hover {
+      color: var(--primary-color);
+      background: rgba(var(--primary-color), 0.1);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+
+      &::before {
+        left: 100%;
+      }
+    }
+
+    // Circular button variant
+    &--circular {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      padding: 0;
+      background: rgba(var(--surface-color), 0.9);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(var(--border-color), 0.3);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+      &:hover {
+        transform: scale(1.05);
+        background: rgba(var(--primary-color), 0.1);
+        border-color: rgba(var(--primary-color), 0.5);
+        box-shadow: 0 6px 20px rgba(var(--primary-color), 0.2);
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.3);
+      }
+    }
+
+    &--theme {
+      &:hover {
+        animation: headerSpin var(--transition-normal) ease-in-out;
+      }
+    }
+
+    &--active {
+      background: var(--primary-color);
+      color: var(--on-primary-color);
+      box-shadow: var(--shadow-sm);
+
+      &:hover {
+        background: var(--primary-color-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+
+      // Circular active state
+      &.header__action-btn--circular {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        border-color: transparent;
+        color: white;
+
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 0 6px 20px rgba(var(--primary-color), 0.4);
+        }
+      }
+    }
+  }
+
+  &__flag-icon {
+    font-size: var(--font-size-xl);
+    line-height: 1;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  }
+
+  &__menu {
+    margin-top: var(--spacing-sm);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+
+    .mat-mdc-menu-item {
+      border-radius: var(--border-radius-md);
+      margin: var(--spacing-xs);
+      transition: all var(--transition-fast);
+
+      &:hover {
+        background: var(--primary-color-light);
+        color: var(--primary-color-dark);
+        transform: translateX(4px);
+      }
+
+      &.active {
+        background: var(--primary-color);
+        color: var(--on-primary-color);
+      }
+    }
+  }
 }
 
-.menu-button {
-  margin-right: 16px;
-  color: var(--primary-color);
+// Animations
+@keyframes headerSpin {
+  from { 
+    transform: rotate(0deg); 
+  }
+  to { 
+    transform: rotate(360deg); 
+  }
 }
 
-.header-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+// Enhanced hover effects
+.header__action-btn {
+  @include respond-to('mobile') {
+    padding: var(--spacing-sm);
+  }
 }
 
-.header-title {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--primary-color);
-  line-height: 1.2;
-}
-
-.header-subtitle {
-  font-size: 0.875rem;
-  color: var(--on-surface-variant-color);
-  margin-top: -2px;
-}
-
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.action-button {
-  color: var(--on-surface-color);
-  transition: all 0.3s ease;
-}
-
-.action-button:hover {
-  color: var(--primary-color);
-  transform: scale(1.1);
-}
-
-.theme-toggle {
-  animation: none;
-}
-
-.theme-toggle:hover {
-  animation: spin 0.3s ease-in-out;
-}
-
-.flag-icon {
-  font-size: 1.2rem;
-  line-height: 1;
-}
-
-.active {
-  background-color: var(--primary-color);
-  color: var(--on-primary-color);
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(180deg); }
-}
-
-@media (max-width: 768px) {
-  .header-title {
-    font-size: 1.25rem;
+// Dark theme enhancements
+.dark-theme .header {
+  background: linear-gradient(135deg, var(--surface-color) 0%, rgba(var(--surface-variant-color), 0.8) 100%);
+  border-bottom-color: rgba(var(--border-color), 0.3);
+  
+  &__brand::before {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   }
   
-  .header-subtitle {
-    font-size: 0.75rem;
-  }
-  
-  .header-actions {
-    gap: 4px;
+  &__actions {
+    background: rgba(var(--surface-variant-color), 0.3);
+    border-color: rgba(var(--border-color), 0.3);
   }
 } 

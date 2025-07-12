@@ -1,11 +1,13 @@
 <div class="sidenav-content">
   <div class="profile-section">
-    <div class="profile-avatar">
-      <img 
-        src="https://res.cloudinary.com/dr0a1g6rs/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1752130331/myface_ldvrx6.jpg" 
-        alt="Sebastian Rubio"
-        loading="lazy">
-    </div>
+    <a routerLink="/" class="profile-avatar-link" (click)="onNavigate()">
+      <div class="profile-avatar">
+        <img 
+          src="https://res.cloudinary.com/dr0a1g6rs/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1752130331/myface_ldvrx6.jpg" 
+          alt="Sebastian Rubio"
+          loading="lazy">
+      </div>
+    </a>
     <h3 class="profile-name">{{ 'header.title' | translate }}</h3>
     <p class="profile-role">{{ 'header.subtitle' | translate }}</p>
     <p class="profile-experience">{{ 'sidenav.experience' | translate }}</p>

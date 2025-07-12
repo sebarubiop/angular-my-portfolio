@@ -52,8 +52,14 @@
             "scripts": [],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/global_styles.css"
+              "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles",
+                "src/styles/abstracts"
+              ]
+            },
             "tsConfig": "tsconfig.app.json",
             "server": "src/main.server.ts",
             "outputMode": "server",

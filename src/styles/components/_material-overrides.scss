@@ -1,0 +1,314 @@
+// Material Design component overrides
+// Using CSS custom properties for consistent theming
+
+// Card overrides
+.mat-mdc-card {
+  background-color: var(--surface-color);
+  color: var(--on-surface-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-normal);
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  // Card content spacing
+  .mat-mdc-card-content {
+    padding: var(--spacing-lg);
+  }
+
+  .mat-mdc-card-header {
+    padding: var(--spacing-lg) var(--spacing-lg) 0;
+  }
+
+  .mat-mdc-card-actions {
+    padding: 0 var(--spacing-lg) var(--spacing-lg);
+  }
+}
+
+// Button overrides
+.mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-outlined-button,
+.mat-mdc-fab,
+.mat-mdc-mini-fab {
+  border-radius: var(--border-radius-md);
+  transition: all var(--transition-fast);
+  font-weight: var(--font-weight-medium);
+
+  &:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+}
+
+.mat-mdc-raised-button {
+  box-shadow: var(--shadow-sm);
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+}
+
+.mat-mdc-fab,
+.mat-mdc-mini-fab {
+  box-shadow: var(--shadow-md);
+
+  &:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+}
+
+// Form field overrides
+.mat-mdc-form-field {
+  width: 100%;
+
+  .mat-mdc-form-field-outline {
+    border-radius: var(--border-radius-md);
+    border-color: var(--outline-color);
+  }
+
+  &.mat-form-field-invalid {
+    .mat-mdc-form-field-outline {
+      border-color: var(--error-color);
+    }
+  }
+
+  &.mat-focused {
+    .mat-mdc-form-field-outline {
+      border-color: var(--primary-color);
+    }
+  }
+
+  .mat-mdc-form-field-label {
+    color: var(--on-surface-variant-color);
+  }
+
+  .mat-mdc-form-field-error {
+    color: var(--error-color);
+    font-size: var(--font-size-xs);
+  }
+}
+
+// Input overrides
+.mat-mdc-input-element {
+  color: var(--on-surface-color);
+  caret-color: var(--primary-color);
+
+  &::placeholder {
+    color: var(--on-surface-variant-color);
+    opacity: 0.7;
+  }
+}
+
+// Chip overrides
+.mat-mdc-chip {
+  border-radius: var(--border-radius-xl);
+  background-color: var(--surface-variant-color);
+  color: var(--on-surface-variant-color);
+  font-size: var(--font-size-sm);
+  transition: all var(--transition-fast);
+
+  &:hover {
+    background-color: var(--primary-color-light);
+    color: var(--primary-color-dark);
+  }
+
+  .mat-mdc-chip-remove {
+    color: inherit;
+    opacity: 0.7;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+// Dialog overrides
+.mat-mdc-dialog-container {
+  background-color: var(--surface-color);
+  color: var(--on-surface-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-xl);
+
+  .mat-mdc-dialog-title {
+    color: var(--on-surface-color);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .mat-mdc-dialog-content {
+    color: var(--on-surface-variant-color);
+  }
+}
+
+// Snackbar overrides
+.mat-mdc-snack-bar-container {
+  background-color: var(--surface-variant-color);
+  color: var(--on-surface-color);
+  border-radius: var(--border-radius-md);
+
+  &.success-snackbar {
+    background-color: var(--success-color);
+    color: white;
+  }
+
+  &.error-snackbar {
+    background-color: var(--error-color);
+    color: white;
+  }
+
+  &.warning-snackbar {
+    background-color: var(--warning-color);
+    color: white;
+  }
+
+  &.info-snackbar {
+    background-color: var(--info-color);
+    color: white;
+  }
+}
+
+// Toolbar overrides
+.mat-toolbar {
+  background-color: var(--surface-color);
+  color: var(--on-surface-color);
+  border-bottom: 1px solid var(--border-color);
+
+  &.mat-primary {
+    background-color: var(--primary-color);
+    color: var(--on-primary-color);
+  }
+}
+
+// Menu overrides
+.mat-mdc-menu-panel {
+  background-color: var(--surface-color);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
+
+  .mat-mdc-menu-item {
+    color: var(--on-surface-color);
+    transition: background-color var(--transition-fast);
+
+    &:hover {
+      background-color: var(--surface-variant-color);
+    }
+
+    &:focus {
+      background-color: var(--surface-variant-color);
+    }
+  }
+}
+
+// Tab overrides
+.mat-mdc-tab-group {
+  .mat-mdc-tab-header {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .mat-mdc-tab {
+    color: var(--on-surface-variant-color);
+    transition: color var(--transition-fast);
+
+    &.mdc-tab--active {
+      color: var(--primary-color);
+    }
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  .mat-mdc-tab-body-content {
+    padding: var(--spacing-lg);
+  }
+}
+
+// Expansion panel overrides
+.mat-expansion-panel {
+  background-color: var(--surface-color);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-md);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .mat-expansion-panel-header {
+    color: var(--on-surface-color);
+    
+    &:hover {
+      background-color: var(--surface-variant-color);
+    }
+  }
+
+  .mat-expansion-panel-body {
+    color: var(--on-surface-variant-color);
+  }
+}
+
+// Slider overrides
+.mat-mdc-slider {
+  .mdc-slider__track {
+    background-color: var(--surface-variant-color);
+  }
+
+  .mdc-slider__track--active_fill {
+    background-color: var(--primary-color);
+  }
+
+  .mdc-slider__thumb {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+}
+
+// Progress indicators
+.mat-mdc-progress-spinner {
+  .mdc-circular-progress__determinate-circle,
+  .mdc-circular-progress__indeterminate-circle-graphic {
+    stroke: var(--primary-color);
+  }
+}
+
+.mat-mdc-progress-bar {
+  .mdc-linear-progress__buffer-bar {
+    background-color: var(--surface-variant-color);
+  }
+
+  .mdc-linear-progress__bar-inner {
+    border-color: var(--primary-color);
+  }
+}
+
+// Select overrides
+.mat-mdc-select {
+  color: var(--on-surface-color);
+
+  .mat-mdc-select-arrow {
+    color: var(--on-surface-variant-color);
+  }
+}
+
+.mat-mdc-select-panel {
+  background-color: var(--surface-color);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
+
+  .mat-mdc-option {
+    color: var(--on-surface-color);
+
+    &:hover {
+      background-color: var(--surface-variant-color);
+    }
+
+    &.mdc-list-item--selected {
+      background-color: var(--primary-color-light);
+      color: var(--primary-color-dark);
+    }
+  }
+} 

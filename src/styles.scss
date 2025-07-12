@@ -1,0 +1,98 @@
+// Main styles file - replaces global_styles.css
+// Using BEM naming convention for better maintainability
+
+// Import partials using modern @use directive
+@use 'abstracts/variables';
+@use 'abstracts/mixins';
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/utilities';
+@use 'components/material-overrides';
+@use 'themes/light-theme';
+@use 'themes/dark-theme';
+
+// Global application styles using design system
+.app {
+  &__container {
+    @include mixins.container;
+  }
+
+  &__main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__content {
+    flex: 1;
+    padding-top: var(--spacing-lg);
+  }
+}
+
+// Loading states
+.loading {
+  &__spinner {
+    @include mixins.flex-center;
+    min-height: 200px;
+  }
+
+  &__text {
+    margin-top: var(--spacing-md);
+    text-align: center;
+    color: var(--on-surface-variant-color);
+  }
+}
+
+// Animation classes
+.fade {
+  &--in {
+    @include mixins.fade-in(0.6s);
+  }
+
+  &--out {
+    animation: fadeOut 0.3s ease-in-out;
+  }
+}
+
+.slide {
+  &--up {
+    @include mixins.slide-up(0.6s);
+  }
+
+  &--down {
+    animation: slideDown 0.6s ease-out;
+  }
+}
+
+// Additional keyframes not covered by mixins
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 

@@ -1,0 +1,287 @@
+// SCSS Mixins for reusable patterns
+// Using BEM naming convention and consistent patterns
+
+@use 'sass:map';
+@use 'variables' as *;
+
+// Responsive breakpoints mixin
+
+@mixin respond-to($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (max-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$breakpoint}";
+  }
+}
+
+// Responsive breakpoints mixin (min-width)
+@mixin respond-from($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$breakpoint}";
+  }
+}
+
+// Z-index helper
+@function z($layer) {
+  @if map.has-key($z-index, $layer) {
+    @return map.get($z-index, $layer);
+  } @else {
+    @warn "Unknown z-index layer: #{$layer}";
+    @return 1;
+  }
+}
+
+// Button mixins
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  
+  &:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background-color: var(--primary-color);
+  color: var(--on-primary-color);
+
+  &:hover:not(:disabled) {
+    background-color: var(--primary-color-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+
+  &:hover:not(:disabled) {
+    background-color: var(--primary-color);
+    color: var(--on-primary-color);
+    transform: translateY(-2px);
+  }
+}
+
+@mixin button-ghost {
+  @include button-base;
+  background-color: transparent;
+  color: var(--on-surface-color);
+
+  &:hover:not(:disabled) {
+    background-color: var(--surface-variant-color);
+    transform: translateY(-1px);
+  }
+}
+
+// Card mixins
+@mixin card-base {
+  background-color: var(--surface-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+@mixin card-hover {
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+@mixin card-interactive {
+  @include card-base;
+  @include card-hover;
+  cursor: pointer;
+}
+
+// Typography mixins
+@mixin heading-base {
+  margin: 0;
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: var(--on-surface-color);
+}
+
+@mixin heading-1 {
+  @include heading-base;
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-bold);
+
+  @include respond-to('mobile') {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+@mixin heading-2 {
+  @include heading-base;
+  font-size: var(--font-size-4xl);
+
+  @include respond-to('mobile') {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+@mixin heading-3 {
+  @include heading-base;
+  font-size: var(--font-size-3xl);
+
+  @include respond-to('mobile') {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+@mixin body-text {
+  margin: 0;
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-base);
+  color: var(--on-surface-variant-color);
+}
+
+@mixin small-text {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+  color: var(--on-surface-variant-color);
+}
+
+// Layout mixins
+@mixin container {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+
+  @include respond-to('mobile') {
+    padding: 0 var(--spacing-md);
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin grid-auto-fit($min-width: 250px) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+  gap: var(--spacing-lg);
+}
+
+// Form mixins
+@mixin form-field {
+  .mat-mdc-form-field {
+    width: 100%;
+    
+    .mat-mdc-form-field-outline {
+      border-radius: var(--border-radius-md);
+    }
+
+    &.mat-form-field-invalid {
+      .mat-mdc-form-field-outline {
+        border-color: var(--error-color);
+      }
+    }
+  }
+}
+
+// Animation mixins
+@mixin fade-in($duration: 0.6s) {
+  opacity: 0;
+  animation: fadeIn $duration ease-in-out forwards;
+}
+
+@mixin slide-up($duration: 0.6s) {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp $duration ease-out forwards;
+}
+
+@mixin hover-lift {
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+// Focus management
+@mixin focus-visible {
+  &:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
+  }
+}
+
+// Scrollbar styling
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--surface-variant-color);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: var(--border-radius-sm);
+
+    &:hover {
+      background: var(--divider-color);
+    }
+  }
+}
+
+// Aspect ratio helper
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  
+  &::before {
+    content: '';
+    display: block;
+    padding-top: percentage($height / $width);
+  }
+  
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+} 

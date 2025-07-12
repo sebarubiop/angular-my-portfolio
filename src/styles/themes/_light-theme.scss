@@ -1,0 +1,25 @@
+// Light theme styles (default)
+// CSS custom properties for light theme are defined in variables.scss
+
+.light-theme {
+  // Light theme is the default, variables are already set in :root
+  // Additional light theme specific styles can go here
+  
+  // Component overrides for light theme
+  .mat-mdc-card {
+    background-color: var(--surface-color);
+    color: var(--on-surface-color);
+  }
+
+  .mat-mdc-button-base {
+    color: var(--on-surface-color);
+  }
+
+  .mat-mdc-form-field {
+    .mat-mdc-form-field-outline {
+      color: var(--outline-color);
+    }
+  }
+
+  // Scrollbar for light theme (inherited from base styles)
+} 
