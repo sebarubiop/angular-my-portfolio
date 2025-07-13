@@ -1,0 +1,187 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About Me",
+    "contact": "Contact",
+    "experience": "Experience",
+    "sandbox": "Sandbox"
+  },
+  "header": {
+    "title": "Sebastian Andres Rubio Palominos",
+    "subtitle": "Senior Front-End Developer | Angular & React Expert | CISA Certified",
+    "select_language": "Select Language",
+    "switch_to_light": "Switch to Light Mode",
+    "switch_to_dark": "Switch to Dark Mode",
+    "toggle_menu": "Toggle menu"
+  },
+  "sidenav": {
+    "experience": "10+ Years Experience",
+    "home_description": "Welcome & Overview",
+    "about_description": "Background & Skills",
+    "experience_description": "Career Journey",
+    "projects_description": "Portfolio & Work",
+    "contact_description": "Get In Touch",
+    "sandbox_description": "Experiments & Demos",
+    "built_with": "Built with Angular 20",
+    "copyright": "© 2025 Sebastian Andres Rubio Palominos"
+  },
+  "common": {
+    "view_project": "View Project",
+    "view_all_projects": "View All Projects",
+    "get_in_touch": "Get In Touch",
+    "send_message": "Send Message",
+    "reset_form": "Reset Form",
+    "sending": "Sending...",
+    "details": "Details",
+    "live_demo": "Live Demo",
+    "source": "Source",
+    "view_on_github": "View on GitHub"
+  },
+  "home": {
+    "hero_title": "Hi, I'm Sebastian Andres Rubio Palominos",
+    "hero_subtitle": "Senior Front-End Developer | Angular & React Expert | CISA Certified",
+    "hero_description": "Proactive and results-driven Senior Front-End Developer with over 10 years of international experience across Chile, Australia, and the US. Strong expertise in building scalable, performant web apps using Angular, React, and AWS. Proven ability to lead UI/UX improvements, architect micro-frontend structures, and deliver high-quality user interfaces in fast-paced, Agile environments.",
+    "view_my_work": "View My Work",
+    "get_in_touch": "Get In Touch",
+    "technologies_title": "Technologies I Work With",
+    "featured_work_title": "Featured Work",
+    "view_all_projects": "View All Projects",
+    "stats": {
+      "years_experience": "Years Experience",
+      "projects_completed": "Projects Completed",
+      "clients_served": "Clients Served",
+      "client_rating": "Client Rating"
+    }
+  },
+  "about": {
+    "page_title": "About Me",
+    "page_subtitle": "Get to know more about my journey, skills, and passion for frontend development",
+    "my_journey": "My Journey",
+    "story_paragraph_1": "With over 10 years of international experience across Chile, Australia, and the US, I've had the privilege of working with diverse teams and technologies to create exceptional digital experiences. My journey began with a Bachelor's in Computer and Informatics Engineering from the University of Santiago of Chile, followed by a Master's degree from MIT/MITM at the University of Sydney.",
+    "story_paragraph_2": "I specialize in modern JavaScript frameworks, particularly Angular (2-15) and React.js, and I'm passionate about creating scalable, performant web applications. My expertise spans micro-frontend architectures, component-based design, and delivering high-quality user interfaces in fast-paced, Agile environments. I have extensive experience in industries including logistics, travel, finance, e-learning, and SaaS.",
+    "story_paragraph_3": "As a CISA Certified Information Systems Auditor, I bring a unique combination of technical expertise and security awareness to every project. I'm always eager to take on new challenges and continue growing in this ever-evolving field, with a focus on leading UI/UX improvements and architecting scalable solutions.",
+    "technical_skills": "Technical Skills",
+    "education_certifications": "Education & Certifications",
+    "interests_hobbies": "Interests & Hobbies",
+    "core_values": "Core Values",
+    "skills": {
+      "frontend": "Languages & Frameworks",
+      "backend": "Architecture & APIs",
+      "tools": "Cloud & Dev Tools"
+    },
+    "interests": {
+      "mentoring": "Mentoring",
+      "mentoring_desc": "Helping junior developers grow in their careers and navigate the tech industry",
+      "latin_dance": "Latin Dance",
+      "latin_dance_desc": "Passionate about salsa and bachata dancing, enjoying the rhythm and cultural expression of Latin music",
+      "traveling": "Traveling",
+      "traveling_desc": "Exploring new cultures and gaining fresh perspectives through travel and adventure",
+      "fitness": "Fitness & Wellness",
+      "fitness_desc": "Maintaining physical and mental health through regular exercise and outdoor activities"
+    },
+    "values": {
+      "innovation": "Innovation",
+      "innovation_desc": "I stay curious about new technologies and approaches that can improve user experiences and development efficiency",
+      "collaboration": "Collaboration", 
+      "collaboration_desc": "Great software is built by great teams. I value open communication, knowledge sharing, and collective problem-solving",
+      "learning": "Continuous Learning",
+      "learning_desc": "The tech industry evolves rapidly, and I'm committed to staying current with new tools, frameworks, and best practices",
+      "quality": "Quality",
+      "quality_desc": "I believe in delivering high-quality code that is maintainable, scalable, and follows industry best practices"
+    }
+  },
+  "projects": {
+    "page_title": "My Projects",
+    "page_subtitle": "A showcase of my work across different technologies and domains",
+    "all_projects": "All Projects",
+    "featured": "Featured",
+    "featured_project": "Featured Project",
+    "key_features": "Key Features:",
+    "project_highlights": "Project Highlights:",
+    "view_live_project": "View Live Project"
+  },
+  "experience": {
+    "page_title": "Professional Experience",
+    "page_subtitle": "My career journey through various roles and technologies",
+    "work_experience": "Work Experience",
+    "project_url": "Project URL:",
+    "skills_progress": "Skills Progress",
+    "achievements": "Achievements",
+    "key_achievements": "Key Achievements:",
+    "technologies_used": "Technologies Used:",
+    "skills_evolution": "Skills Evolution Over Time",
+    "professional_achievements": "Professional Achievements",
+    "impact": "Impact:"
+  },
+  "contact": {
+    "page_title": "Get In Touch",
+    "page_subtitle": "I'm always interested in new opportunities and exciting projects. Let's discuss how we can work together!",
+    "get_in_touch": "Get In Touch",
+    "contact_information": "Contact Information",
+    "send_message": "Send Me a Message",
+    "connect_with_me": "Connect With Me",
+    "email": "Email",
+    "email_description": "Best way to reach me for project inquiries",
+    "phone": "Phone",
+    "phone_description": "Available Monday to Friday, 9 AM - 6 PM (ART)",
+    "location": "Location",
+          "location_value": "Sydney, Australia",
+    "location_description": "Open to remote work and relocation",
+    "response_time": "Response Time",
+    "response_time_value": "Within 24 hours",
+    "response_time_description": "I'll get back to you as soon as possible",
+    "follow_me": "Follow Me",
+    "form": {
+      "name": "Full Name",
+      "name_placeholder": "Enter your full name",
+      "name_required": "Name is required",
+      "email": "Email",
+      "email_placeholder": "Enter your email address",
+      "email_required": "Email is required",
+      "email_invalid": "Please enter a valid email",
+      "subject": "Subject",
+      "subject_placeholder": "What's this about?",
+      "subject_required": "Subject is required",
+      "company": "Company/Organization",
+      "company_placeholder": "Your company name (optional)",
+      "project_type": "Project Type",
+      "budget": "Budget Range",
+      "message": "Message",
+      "message_placeholder": "Tell me about your project, timeline, and any specific requirements...",
+      "message_required": "Message is required",
+      "message_min_length": "Message must be at least 10 characters long",
+      "send_message": "Send Message",
+      "reset": "Reset Form",
+      "project_types": {
+        "website": "Website",
+        "webapp": "Web Application",
+        "mobile": "Mobile App",
+        "ecommerce": "E-commerce",
+        "consulting": "Consulting",
+        "other": "Other"
+      },
+      "budget_ranges": {
+        "small": "Under $5,000",
+        "medium": "$5,000 - $15,000",
+        "large": "$15,000 - $50,000",
+        "enterprise": "Over $50,000"
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": "How long does a typical project take?",
+      "a1": "Project timelines vary based on complexity and scope. Simple websites may take 2-4 weeks, while complex applications can take 3-6 months. I provide detailed timeline estimates after understanding your requirements.",
+      "q2": "Do you work with international clients?",
+      "a2": "Absolutely! I work with clients worldwide and am comfortable with different time zones. I use modern collaboration tools to ensure smooth communication throughout the project.",
+      "q3": "What technologies do you specialize in?",
+      "a3": "I specialize in Angular, React, TypeScript, and modern web technologies. I also have experience with Node.js, databases, and cloud platforms like AWS and Firebase.",
+      "q4": "Do you provide ongoing support?",
+      "a4": "Yes, I offer maintenance and support packages for projects after completion. This includes bug fixes, updates, security patches, and minor feature enhancements.",
+      "q5": "Can you help with existing projects?",
+      "a5": "Definitely! I can help improve existing codebases, add new features, optimize performance, or migrate to newer technologies. I start with a thorough code review and assessment.",
+      "q6": "What is your preferred payment structure?",
+      "a6": "I typically work with milestone-based payments: 30% upfront, 40% at midpoint, and 30% on completion. For longer projects, we can discuss monthly payment schedules."
+    }
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "about": "Sobre Mí",
+    "contact": "Contacto",
+    "experience": "Experiencia",
+    "sandbox": "Sandbox"
+  },
+  "header": {
+    "title": "Sebastian Andres Rubio Palominos",
+    "subtitle": "Desarrollador Frontend Senior | Experto en Angular & React | CISA Certified",
+    "select_language": "Seleccionar Idioma",
+    "switch_to_light": "Cambiar a Modo Claro",
+    "switch_to_dark": "Cambiar a Modo Oscuro",
+    "toggle_menu": "Alternar menú"
+  },
+  "sidenav": {
+    "experience": "10+ Años de Experiencia",
+    "home_description": "Bienvenida y Resumen",
+    "about_description": "Antecedentes y Habilidades",
+    "experience_description": "Trayectoria Profesional",
+    "projects_description": "Portafolio y Trabajo",
+    "contact_description": "Contactar",
+    "sandbox_description": "Experimentos y Demos",
+    "built_with": "Construido con Angular 20",
+    "copyright": "© 2025 Sebastian Andres Rubio Palominos"
+  },
+  "common": {
+    "view_project": "Ver Proyecto",
+    "view_all_projects": "Ver Todos los Proyectos",
+    "get_in_touch": "Contactar",
+    "send_message": "Enviar Mensaje",
+    "reset_form": "Restablecer Formulario",
+    "sending": "Enviando...",
+    "details": "Detalles",
+    "live_demo": "Demo en Vivo",
+    "source": "Código Fuente",
+    "view_on_github": "Ver en GitHub"
+  },
+  "home": {
+    "hero_title": "Hola, soy Sebastian Andres Rubio Palominos",
+    "hero_subtitle": "Desarrollador Frontend Senior | Experto en Angular & React | CISA Certified",
+    "hero_description": "Desarrollador Frontend Senior proactivo y orientado a resultados con más de 10 años de experiencia internacional en Chile, Australia y Estados Unidos. Fuerte experiencia en construcción de aplicaciones web escalables y performantes usando Angular, React y AWS. Capacidad comprobada para liderar mejoras de UI/UX, arquitectar estructuras de micro-frontend y entregar interfaces de usuario de alta calidad en entornos Agile de ritmo rápido.",
+    "view_my_work": "Ver Mi Trabajo",
+    "get_in_touch": "Contactar",
+    "technologies_title": "Tecnologías con las que Trabajo",
+    "featured_work_title": "Trabajo Destacado",
+    "view_all_projects": "Ver Todos los Proyectos",
+    "stats": {
+      "years_experience": "Años de Experiencia",
+      "projects_completed": "Proyectos Completados",
+      "clients_served": "Clientes Atendidos",
+      "client_rating": "Calificación de Clientes"
+    }
+  },
+  "about": {
+    "page_title": "Sobre Mí",
+    "page_subtitle": "Conoce más sobre mi trayectoria, habilidades y pasión por el desarrollo frontend",
+    "my_journey": "Mi Trayectoria",
+    "story_paragraph_1": "Con más de 10 años de experiencia internacional en Chile, Australia y Estados Unidos, he tenido el privilegio de trabajar con equipos diversos y tecnologías para crear experiencias digitales excepcionales. Mi viaje comenzó con una Licenciatura en Ingeniería en Informática de la Universidad de Santiago de Chile, seguida de una Maestría de MIT/MITM en la Universidad de Sydney.",
+    "story_paragraph_2": "Me especializo en frameworks modernos de JavaScript, particularmente Angular (2-15) y React.js, y me apasiona crear aplicaciones web escalables y performantes. Mi experiencia abarca arquitecturas de micro-frontend, diseño basado en componentes y entrega de interfaces de usuario de alta calidad en entornos Agile de ritmo rápido. Tengo amplia experiencia en industrias como logística, viajes, finanzas, e-learning y SaaS.",
+    "story_paragraph_3": "Como Auditor de Sistemas de Información certificado CISA, aporto una combinación única de experiencia técnica y conocimiento de seguridad a cada proyecto. Siempre estoy ansioso por asumir nuevos desafíos y seguir creciendo en este campo en constante evolución, con un enfoque en liderar mejoras de UI/UX y arquitectar soluciones escalables.",
+    "technical_skills": "Habilidades Técnicas",
+    "education_certifications": "Educación y Certificaciones",
+    "interests_hobbies": "Intereses y Pasatiempos",
+    "core_values": "Valores Fundamentales",
+    "skills": {
+      "frontend": "Frameworks Frontend",
+      "backend": "Backend y Base de Datos",
+      "tools": "Herramientas y DevOps"
+    },
+    "interests": {
+      "mentoring": "Mentoría",
+      "mentoring_desc": "Ayudando a desarrolladores junior a crecer en sus carreras y navegar la industria tecnológica",
+      "latin_dance": "Baile Latino",
+      "latin_dance_desc": "Apasionado por el baile de salsa y bachata, disfrutando del ritmo y la expresión cultural de la música latina",
+      "traveling": "Viajes",
+      "traveling_desc": "Explorando nuevas culturas y obteniendo perspectivas frescas a través de viajes y aventuras",
+      "fitness": "Fitness y Bienestar",
+      "fitness_desc": "Manteniendo la salud física y mental a través de ejercicio regular y actividades al aire libre"
+    },
+    "values": {
+      "innovation": "Innovación",
+      "innovation_desc": "Me mantengo curioso sobre nuevas tecnologías y enfoques que pueden mejorar las experiencias de usuario y la eficiencia del desarrollo",
+      "collaboration": "Colaboración",
+      "collaboration_desc": "El gran software se construye con grandes equipos. Valoro la comunicación abierta, el intercambio de conocimientos y la resolución colectiva de problemas",
+      "learning": "Aprendizaje Continuo",
+      "learning_desc": "La industria tecnológica evoluciona rápidamente, y estoy comprometido a mantenerme actualizado con nuevas herramientas, frameworks y mejores prácticas",
+      "quality": "Calidad",
+      "quality_desc": "Creo en entregar código de alta calidad que sea mantenible, escalable y siga las mejores prácticas de la industria"
+    }
+  },
+  "projects": {
+    "page_title": "Mis Proyectos",
+    "page_subtitle": "Una muestra de mi trabajo en diferentes tecnologías y dominios",
+    "all_projects": "Todos los Proyectos",
+    "featured": "Destacados",
+    "featured_project": "Proyecto Destacado",
+    "key_features": "Características Clave:",
+    "project_highlights": "Aspectos Destacados del Proyecto:",
+    "view_live_project": "Ver Proyecto en Vivo"
+  },
+  "experience": {
+    "page_title": "Experiencia Profesional",
+    "page_subtitle": "Mi trayectoria profesional a través de varios roles y tecnologías",
+    "work_experience": "Experiencia Laboral",
+    "project_url": "URL del Proyecto:",
+    "skills_progress": "Progreso de Habilidades",
+    "achievements": "Logros",
+    "key_achievements": "Logros Clave:",
+    "technologies_used": "Tecnologías Utilizadas:",
+    "skills_evolution": "Evolución de Habilidades a lo Largo del Tiempo",
+    "professional_achievements": "Logros Profesionales",
+    "impact": "Impacto:"
+  },
+  "contact": {
+    "page_title": "Contactar",
+    "page_subtitle": "Siempre estoy interesado en nuevas oportunidades y proyectos emocionantes. ¡Discutamos cómo podemos trabajar juntos!",
+    "get_in_touch": "Contactar",
+    "contact_information": "Información de Contacto",
+    "send_message": "Envíame un Mensaje",
+    "connect_with_me": "Conecta Conmigo",
+    "email": "Email",
+    "email_description": "La mejor forma de contactarme para consultas de proyectos",
+    "phone": "Teléfono",
+    "phone_description": "Disponible de lunes a viernes, 9 AM - 6 PM (ART)",
+    "location": "Ubicación",
+          "location_value": "Sydney, Australia",
+    "location_description": "Abierto a trabajo remoto y reubicación",
+    "response_time": "Tiempo de Respuesta",
+    "response_time_value": "Dentro de 24 horas",
+    "response_time_description": "Te responderé tan pronto como sea posible",
+    "follow_me": "Sígueme",
+    "form": {
+      "name": "Nombre Completo",
+      "name_placeholder": "Ingresa tu nombre completo",
+      "name_required": "El nombre es requerido",
+      "email": "Email",
+      "email_placeholder": "Ingresa tu dirección de email",
+      "email_required": "El email es requerido",
+      "email_invalid": "Por favor ingresa un email válido",
+      "subject": "Asunto",
+      "subject_placeholder": "¿De qué se trata?",
+      "subject_required": "El asunto es requerido",
+      "company": "Empresa/Organización",
+      "company_placeholder": "Nombre de tu empresa (opcional)",
+      "project_type": "Tipo de Proyecto",
+      "budget": "Rango de Presupuesto",
+      "message": "Mensaje",
+      "message_placeholder": "Cuéntame sobre tu proyecto, cronograma y cualquier requerimiento específico...",
+      "message_required": "El mensaje es requerido",
+      "message_min_length": "El mensaje debe tener al menos 10 caracteres",
+      "send_message": "Enviar Mensaje",
+      "reset": "Restablecer Formulario",
+      "project_types": {
+        "website": "Sitio Web",
+        "webapp": "Aplicación Web",
+        "mobile": "App Móvil",
+        "ecommerce": "E-commerce",
+        "consulting": "Consultoría",
+        "other": "Otro"
+      },
+      "budget_ranges": {
+        "small": "Menos de $5,000",
+        "medium": "$5,000 - $15,000",
+        "large": "$15,000 - $50,000",
+        "enterprise": "Más de $50,000"
+      }
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "q1": "¿Cuánto tiempo toma un proyecto típico?",
+      "a1": "Los cronogramas de proyectos varían según la complejidad y el alcance. Los sitios web simples pueden tomar de 2 a 4 semanas, mientras que las aplicaciones complejas pueden tomar de 3 a 6 meses. Proporciono estimaciones detalladas de cronograma después de entender tus requerimientos.",
+      "q2": "¿Trabajas con clientes internacionales?",
+      "a2": "¡Absolutamente! Trabajo con clientes de todo el mundo y me siento cómodo con diferentes zonas horarias. Uso herramientas de colaboración modernas para asegurar una comunicación fluida durante todo el proyecto.",
+      "q3": "¿En qué tecnologías te especializas?",
+      "a3": "Me especializo en Angular, React, TypeScript y tecnologías web modernas. También tengo experiencia con Node.js, bases de datos y plataformas en la nube como AWS y Firebase.",
+      "q4": "¿Proporcionas soporte continuo?",
+      "a4": "Sí, ofrezco paquetes de mantenimiento y soporte para proyectos después de la finalización. Esto incluye corrección de errores, actualizaciones, parches de seguridad y mejoras menores de características.",
+      "q5": "¿Puedes ayudar con proyectos existentes?",
+      "a5": "¡Definitivamente! Puedo ayudar a mejorar bases de código existentes, agregar nuevas características, optimizar rendimiento o migrar a tecnologías más nuevas. Comienzo con una revisión y evaluación exhaustiva del código.",
+      "q6": "¿Cuál es tu estructura de pago preferida?",
+      "a6": "Típicamente trabajo con pagos basados en hitos: 30% por adelantado, 40% en el punto medio y 30% al completar. Para proyectos más largos, podemos discutir cronogramas de pago mensuales."
+    }
+  }
+}
