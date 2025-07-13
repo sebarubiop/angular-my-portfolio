@@ -157,7 +157,7 @@ export class ExperienceComponent implements OnInit {
     {
       name: 'React',
       years: 6,
-      proficiency: 90,
+      proficiency: 60,
       timeline: [
         { year: '2019', active: true },
         { year: '2020', active: true },
@@ -250,7 +250,7 @@ export class ExperienceComponent implements OnInit {
       name: 'Frontend Technologies',
       skills: [
         { name: 'Angular (2-15)', level: 95 },
-        { name: 'React.js', level: 90 },
+        { name: 'React.js', level: 60 },
         { name: 'TypeScript', level: 92 },
         { name: 'JavaScript (ES6+)', level: 95 },
         { name: 'HTML5/CSS3/SCSS', level: 98 },

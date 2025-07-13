@@ -174,18 +174,18 @@
     },
     "faq": {
       "title": "Preguntas Frecuentes",
-      "q1": "¿Cuánto tiempo toma un proyecto típico?",
-      "a1": "Los cronogramas de proyectos varían según la complejidad y el alcance. Los sitios web simples pueden tomar de 2 a 4 semanas, mientras que las aplicaciones complejas pueden tomar de 3 a 6 meses. Proporciono estimaciones detalladas de cronograma después de entender tus requerimientos.",
+      "q1": "¿Cuál es tu estatus de visa y derechos laborales en Australia?",
+      "a1": "Poseo una Visa de Estudiante Subclase 500 (Dependiente) con derechos laborales a tiempo completo, ya que mi esposa está realizando un doctorado. Mi visa es válida hasta febrero de 2030. Documentación de respaldo disponible a solicitud.",
       "q2": "¿Trabajas con clientes internacionales?",
-      "a2": "¡Absolutamente! Trabajo con clientes de todo el mundo y me siento cómodo con diferentes zonas horarias. Uso herramientas de colaboración modernas para asegurar una comunicación fluida durante todo el proyecto.",
+      "a2": "¡Por supuesto! Trabajo con clientes de todo el mundo y me adapto a diferentes zonas horarias. Utilizo herramientas modernas de colaboración para asegurar una comunicación fluida durante el proyecto.",
       "q3": "¿En qué tecnologías te especializas?",
       "a3": "Me especializo en Angular, React, TypeScript y tecnologías web modernas. También tengo experiencia con Node.js, bases de datos y plataformas en la nube como AWS y Firebase.",
-      "q4": "¿Proporcionas soporte continuo?",
-      "a4": "Sí, ofrezco paquetes de mantenimiento y soporte para proyectos después de la finalización. Esto incluye corrección de errores, actualizaciones, parches de seguridad y mejoras menores de características.",
+      "q4": "¿Ofreces soporte continuo?",
+      "a4": "Sí, ofrezco paquetes de mantenimiento y soporte para proyectos después de su finalización. Esto incluye corrección de errores, actualizaciones, parches de seguridad y mejoras menores.",
       "q5": "¿Puedes ayudar con proyectos existentes?",
-      "a5": "¡Definitivamente! Puedo ayudar a mejorar bases de código existentes, agregar nuevas características, optimizar rendimiento o migrar a tecnologías más nuevas. Comienzo con una revisión y evaluación exhaustiva del código.",
-      "q6": "¿Cuál es tu estructura de pago preferida?",
-      "a6": "Típicamente trabajo con pagos basados en hitos: 30% por adelantado, 40% en el punto medio y 30% al completar. Para proyectos más largos, podemos discutir cronogramas de pago mensuales."
+      "a5": "¡Definitivamente! Puedo ayudar a mejorar bases de código existentes, agregar nuevas características, optimizar el rendimiento o migrar a tecnologías más nuevas. Comienzo con una revisión y evaluación exhaustiva del código.",
+      "q6": "¿Puedes proporcionar documentación de visa o apoyo al empleador si es necesario?",
+      "a6": "Por supuesto. Puedo proporcionar toda la documentación necesaria para confirmar mis derechos laborales a tiempo completo en Australia. Si tu organización requiere información adicional o apoyo para cumplimiento, estoy disponible para ayudar."
     }
   },
   "settings": {
