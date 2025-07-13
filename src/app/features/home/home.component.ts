@@ -47,22 +47,32 @@ export class HomeComponent {
 
   featuredProjects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce solution built with Angular and Node.js',
-      image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      technologies: ['Angular', 'Node.js', 'MongoDB', 'Stripe']
+      title: 'XPO Logistics LTL Platform',
+      description: 'Lead developer on ext-web.ltl-xpo.com, the main LTL customer-facing application for XPO Logistics. Built high-performance UIs using Angular 8-15, ag-Grid, and Angular Material.',
+      image: 'https://images.pexels.com/photos/4481530/pexels-photo-4481530.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+      technologies: ['Angular', 'TypeScript', 'ag-Grid', 'Angular Material', 'RxJS', 'NgRx'],
+      liveUrl: 'https://ext-web.ltl-xpo.com/',
+      workExperience: 'Perficient (XPO Logistics) - May 2021 to May 2025'
     },
     {
-      title: 'Task Management App',
-      description: 'Collaborative project management tool with real-time updates',
-      image: 'https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      technologies: ['React', 'Firebase', 'Material-UI', 'Socket.io']
+      title: 'myHotel Fidelity Suite',
+      description: 'Enhanced customer engagement platform for the hospitality industry using Angular 8/11 and React.js. Part of the comprehensive Fidelity MAiS hospitality management system.',
+      image: 'https://images.pexels.com/photos/271619/pexels-photo-271619.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+      technologies: ['Angular', 'React.js', 'Redux', 'Node.js', 'AWS S3', 'API Gateway'],
+      liveUrl: 'https://fidelity.myhotel.cl/',
+      workExperience: 'myHotel (Fidelity Suite) - Dec 2020 to May 2021'
     },
     {
-      title: 'Financial Dashboard',
-      description: 'Data visualization dashboard for financial analytics',
-      image: 'https://images.pexels.com/photos/186461/pexels-photo-186461.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      technologies: ['Angular', 'D3.js', 'Chart.js', 'RxJS']
+      title: 'Smartraining E-Learning Platform',
+      description: 'Comprehensive e-learning platform built with MEAN Stack, featuring interactive content delivery and progress tracking.',
+      image: 'https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+      technologies: ['MEAN Stack', 'Angular', 'Node.js', 'MongoDB', 'Express', 'Ionic 5'],
+      liveUrl: 'https://smartraining.io/',
+      workExperience: 'Smartraining'
     }
   ];
+
+  openProjectUrl(url: string): void {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }
 }

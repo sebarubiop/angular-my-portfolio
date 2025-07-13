@@ -28,6 +28,7 @@
   },
   "common": {
     "view_project": "View Project",
+    "view_details": "View Details",
     "view_all_projects": "View All Projects",
     "get_in_touch": "Get In Touch",
     "send_message": "Send Message",

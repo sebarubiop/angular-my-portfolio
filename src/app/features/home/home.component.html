@@ -91,9 +91,13 @@
           </div>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button color="primary">
+          <button mat-button color="primary" *ngIf="project.liveUrl" (click)="openProjectUrl(project.liveUrl)">
             <mat-icon>launch</mat-icon>
             {{ 'common.view_project' | translate }}
+          </button>
+          <button mat-button color="accent" routerLink="/projects">
+            <mat-icon>info</mat-icon>
+            {{ 'common.view_details' | translate }}
           </button>
         </mat-card-actions>
       </mat-card>
