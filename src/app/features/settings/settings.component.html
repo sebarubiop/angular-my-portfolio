@@ -1,0 +1,246 @@
+<div class="settings">
+  <div class="settings__header">
+    <h1 class="settings__title">
+      <mat-icon>settings</mat-icon>
+      {{ 'settings.title' | translate }}
+    </h1>
+    <p class="settings__subtitle">{{ 'settings.subtitle' | translate }}</p>
+    
+    <div class="settings__intro">
+      <p>{{ 'settings.intro.line1' | translate }}</p>
+      <p>{{ 'settings.intro.line2' | translate }}</p>
+      <p>{{ 'settings.intro.line3' | translate }}</p>
+    </div>
+  </div>
+
+  <!-- Quick Settings -->
+  <section class="settings__section">
+    <h2 class="settings__section-title">
+      <mat-icon>tune</mat-icon>
+      {{ 'settings.quick_settings.title' | translate }}
+    </h2>
+    
+    <div class="settings__quick-actions">
+      <mat-card class="settings__quick-card">
+        <mat-card-content>
+          <div class="settings__quick-item">
+            <mat-icon>{{ themeService.isDarkMode() ? 'light_mode' : 'dark_mode' }}</mat-icon>
+            <div class="settings__quick-info">
+              <h3>{{ 'settings.quick_settings.theme' | translate }}</h3>
+              <p>{{ themeService.isDarkMode() ? ('settings.quick_settings.theme_dark' | translate) : ('settings.quick_settings.theme_light' | translate) }}</p>
+            </div>
+            <button mat-raised-button color="primary" (click)="themeService.toggleTheme()">
+              {{ 'settings.quick_settings.toggle' | translate }}
+            </button>
+          </div>
+          
+          <mat-divider></mat-divider>
+          
+          <div class="settings__quick-item">
+            <mat-icon>translate</mat-icon>
+            <div class="settings__quick-info">
+              <h3>{{ 'settings.quick_settings.language' | translate }}</h3>
+              <p>{{ languageService.getCurrentLanguageConfig().name }}</p>
+            </div>
+            <button mat-raised-button color="primary" (click)="languageService.toggleLanguage()">
+              {{ 'settings.quick_settings.switch' | translate }}
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Application Features -->
+  <section class="settings__section">
+    <h2 class="settings__section-title">
+      <mat-icon>star</mat-icon>
+      {{ 'settings.app_features.title' | translate }}
+    </h2>
+    
+    <div class="settings__features-grid">
+      <mat-card *ngFor="let feature of appFeatures" class="settings__feature-card">
+        <mat-card-header>
+          <mat-icon mat-card-avatar [style.color]="getCategoryColor(feature.category)">{{ feature.icon }}</mat-icon>
+          <mat-card-title>{{ feature.name | translate }}</mat-card-title>
+          <mat-card-subtitle>{{ feature.description | translate }}</mat-card-subtitle>
+        </mat-card-header>
+        
+        <mat-card-content>
+          <div class="settings__feature-technologies">
+            <h4>{{ 'settings.app_features.technologies' | translate }}</h4>
+            <div class="settings__tech-chips">
+              <mat-chip *ngFor="let tech of feature.technologies" [color]="getCategoryColor(feature.category)">
+                {{ tech }}
+              </mat-chip>
+            </div>
+          </div>
+          
+          <div class="settings__feature-highlights">
+            <h4>{{ 'settings.app_features.highlights' | translate }}</h4>
+            <ul class="settings__highlights-list">
+              <li *ngFor="let highlight of feature.highlights">
+                <mat-icon>check_circle</mat-icon>
+                {{ highlight }}
+              </li>
+            </ul>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Technical Implementation -->
+  <section class="settings__section">
+    <h2 class="settings__section-title">
+      <mat-icon>code</mat-icon>
+      {{ 'settings.technical.title' | translate }}
+    </h2>
+    
+    <mat-accordion class="settings__accordion">
+      <mat-expansion-panel *ngFor="let impl of technicalImplementations" class="settings__expansion-panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon>{{ impl.icon }}</mat-icon>
+            {{ impl.category }}
+          </mat-panel-title>
+          <mat-panel-description>
+            {{ impl.items.length }} {{ 'settings.technical.implementations' | translate }}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        
+        <div class="settings__implementation-content">
+          <div *ngFor="let item of impl.items" class="settings__implementation-item">
+            <h4>{{ item.name }}</h4>
+            <p>{{ item.description }}</p>
+            <div class="settings__tech-chips">
+              <mat-chip *ngFor="let tech of item.technologies" color="accent">
+                {{ tech }}
+              </mat-chip>
+            </div>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </section>
+
+  <!-- Development Statistics -->
+  <section class="settings__section">
+    <h2 class="settings__section-title">
+      <mat-icon>analytics</mat-icon>
+      {{ 'settings.stats.title' | translate }}
+    </h2>
+    
+    <div class="settings__stats-grid">
+      <mat-card class="settings__stat-card">
+        <mat-card-content>
+          <mat-icon>code</mat-icon>
+          <h3>{{ 'settings.stats.lines_of_code' | translate }}</h3>
+          <div class="settings__stat-number">~2,500</div>
+        </mat-card-content>
+      </mat-card>
+      
+      <mat-card class="settings__stat-card">
+        <mat-card-content>
+          <mat-icon>folder</mat-icon>
+          <h3>{{ 'settings.stats.components' | translate }}</h3>
+          <div class="settings__stat-number">12</div>
+        </mat-card-content>
+      </mat-card>
+      
+      <mat-card class="settings__stat-card">
+        <mat-card-content>
+          <mat-icon>extension</mat-icon>
+          <h3>{{ 'settings.stats.services' | translate }}</h3>
+          <div class="settings__stat-number">4</div>
+        </mat-card-content>
+      </mat-card>
+      
+      <mat-card class="settings__stat-card">
+        <mat-card-content>
+          <mat-icon>verified</mat-icon>
+          <h3>{{ 'settings.stats.tests' | translate }}</h3>
+          <div class="settings__stat-number">25+</div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Portfolio Actions -->
+  <section class="settings__section">
+    <h2 class="settings__section-title">
+      <mat-icon>settings_applications</mat-icon>
+      {{ 'settings.actions.title' | translate }}
+    </h2>
+    
+    <div class="settings__actions-grid">
+      <mat-card class="settings__action-card">
+        <mat-card-content>
+          <mat-icon>download</mat-icon>
+          <h3>{{ 'settings.actions.export_settings' | translate }}</h3>
+          <p>{{ 'settings.actions.export_description' | translate }}</p>
+          <button mat-raised-button color="primary" (click)="exportSettings()">
+            <mat-icon>file_download</mat-icon>
+            {{ 'settings.actions.export' | translate }}
+          </button>
+        </mat-card-content>
+      </mat-card>
+      
+      <mat-card class="settings__action-card">
+        <mat-card-content>
+          <mat-icon>refresh</mat-icon>
+          <h3>{{ 'settings.actions.reset_settings' | translate }}</h3>
+          <p>{{ 'settings.actions.reset_description' | translate }}</p>
+          <button mat-raised-button color="warn" (click)="resetSettings()">
+            <mat-icon>restore</mat-icon>
+            {{ 'settings.actions.reset' | translate }}
+          </button>
+        </mat-card-content>
+      </mat-card>
+      
+      <mat-card class="settings__action-card">
+        <mat-card-content>
+          <mat-icon>code</mat-icon>
+          <h3>{{ 'settings.actions.view_source' | translate }}</h3>
+          <p>{{ 'settings.actions.source_description' | translate }}</p>
+          <button mat-raised-button color="accent" (click)="openGitHub()">
+            <mat-icon>open_in_new</mat-icon>
+            {{ 'settings.actions.github' | translate }}
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Developer Contact -->
+  <section class="settings__section">
+    <h2 class="settings__section-title">
+      <mat-icon>person</mat-icon>
+      {{ 'settings.developer.title' | translate }}
+    </h2>
+    
+    <mat-card class="settings__developer-card">
+      <mat-card-content>
+        <div class="settings__developer-info">
+          <div class="settings__developer-avatar">
+            <mat-icon>account_circle</mat-icon>
+          </div>
+          <div class="settings__developer-details">
+            <h3>Sebastian Andres Rubio Palominos</h3>
+            <p>{{ 'settings.developer.title_description' | translate }}</p>
+            <div class="settings__developer-links">
+              <button mat-stroked-button (click)="openLinkedIn()">
+                <mat-icon>work</mat-icon>
+                LinkedIn
+              </button>
+              <button mat-stroked-button (click)="openGitHub()">
+                <mat-icon>code</mat-icon>
+                GitHub
+              </button>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </section>
+</div> 

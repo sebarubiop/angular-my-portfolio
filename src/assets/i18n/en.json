@@ -5,7 +5,8 @@
     "about": "About Me",
     "contact": "Contact",
     "experience": "Experience",
-    "sandbox": "Sandbox"
+    "sandbox": "Sandbox",
+    "settings": "Settings"
   },
   "header": {
     "title": "Sebastian Andres Rubio Palominos",
@@ -13,7 +14,8 @@
     "select_language": "Select Language",
     "switch_to_light": "Switch to Light Mode",
     "switch_to_dark": "Switch to Dark Mode",
-    "toggle_menu": "Toggle menu"
+    "toggle_menu": "Toggle menu",
+    "settings": "Settings"
   },
   "sidenav": {
     "experience": "10+ Years Experience",
@@ -23,6 +25,7 @@
     "projects_description": "Portfolio & Work",
     "contact_description": "Get In Touch",
     "sandbox_description": "Experiments & Demos",
+    "settings_description": "App Settings & Info",
     "built_with": "Built with Angular 20",
     "copyright": "© 2025 Sebastian Andres Rubio Palominos"
   },
@@ -183,6 +186,90 @@
       "a5": "Definitely! I can help improve existing codebases, add new features, optimize performance, or migrate to newer technologies. I start with a thorough code review and assessment.",
       "q6": "What is your preferred payment structure?",
       "a6": "I typically work with milestone-based payments: 30% upfront, 40% at midpoint, and 30% on completion. For longer projects, we can discuss monthly payment schedules."
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Application configuration and technical overview",
+    "intro": {
+      "line1": "Welcome to the settings and technical overview section of my portfolio application. This page showcases the comprehensive features and modern development practices implemented throughout the project.",
+      "line2": "Here you can explore the technical architecture, development statistics, and the cutting-edge technologies that power this Angular 20 application, demonstrating my expertise in modern frontend development.",
+      "line3": "Each section below highlights specific aspects of the application, from responsive design and internationalization to performance optimization and testing strategies."
+    },
+    "quick_settings": {
+      "title": "Quick Settings",
+      "theme": "Theme",
+      "theme_light": "Light mode active",
+      "theme_dark": "Dark mode active",
+      "toggle": "Toggle",
+      "language": "Language",
+      "switch": "Switch"
+    },
+    "app_features": {
+      "title": "Application Features",
+      "technologies": "Technologies Used",
+      "highlights": "Key Highlights"
+    },
+    "technical": {
+      "title": "Technical Implementation",
+      "implementations": "implementations"
+    },
+    "stats": {
+      "title": "Development Statistics",
+      "lines_of_code": "Lines of Code",
+      "components": "Components",
+      "services": "Services",
+      "tests": "Tests"
+    },
+    "actions": {
+      "title": "Portfolio Actions",
+      "export_settings": "Export Settings",
+      "export_description": "Download current app settings as JSON",
+      "export": "Export",
+      "reset_settings": "Reset Settings",
+      "reset_description": "Reset all settings to default values",
+      "reset": "Reset",
+      "view_source": "View Source Code",
+      "source_description": "Check out the source code on GitHub",
+      "github": "GitHub"
+    },
+    "developer": {
+      "title": "Developer Information",
+      "title_description": "Senior Frontend Developer specialized in Angular & React"
+    },
+    "features": {
+      "responsive_design": {
+        "name": "Responsive Design",
+        "description": "Mobile-first responsive design with CSS Grid and Flexbox for optimal viewing on all devices"
+      },
+      "internationalization": {
+        "name": "Internationalization",
+        "description": "Full i18n support with English and Spanish translations using Angular i18n and NGX-Translate"
+      },
+      "theme_system": {
+        "name": "Theme System",
+        "description": "Complete dark/light theme system with Material Design and custom CSS properties"
+      },
+      "modern_angular": {
+        "name": "Modern Angular",
+        "description": "Built with Angular 20 using standalone components, signals, and latest best practices"
+      },
+      "api_integration": {
+        "name": "API Integration",
+        "description": "Robust API integration with RxJS, error handling, and real-time data management"
+      },
+      "performance": {
+        "name": "Performance Optimization",
+        "description": "Optimized bundle sizes, lazy loading, and efficient change detection strategies"
+      },
+      "testing": {
+        "name": "Testing Strategy",
+        "description": "Comprehensive testing setup with Jest for unit tests and Cypress for E2E testing"
+      },
+      "deployment": {
+        "name": "Deployment & CI/CD",
+        "description": "Automated deployment pipeline with GitHub Actions and static hosting optimization"
+      }
     }
   }
 }

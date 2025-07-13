@@ -70,6 +70,12 @@ export class SidenavComponent {
       route: '/sandbox',
       icon: 'code',
       descriptionKey: 'sidenav.sandbox_description'
+    },
+    {
+      labelKey: 'nav.settings',
+      route: '/settings',
+      icon: 'settings',
+      descriptionKey: 'sidenav.settings_description'
     }
   ];
 

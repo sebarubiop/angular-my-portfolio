@@ -27,6 +27,10 @@ export const routes: Routes = [
     loadComponent: () => import('./features/sandbox/sandbox.component').then(m => m.SandboxComponent)
   },
   {
+    path: 'settings',
+    loadComponent: () => import('./features/settings/settings.component').then(m => m.SettingsComponent)
+  },
+  {
     path: '**',
     redirectTo: ''
   }

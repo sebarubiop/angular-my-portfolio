@@ -5,7 +5,8 @@
     "about": "Sobre Mí",
     "contact": "Contacto",
     "experience": "Experiencia",
-    "sandbox": "Sandbox"
+    "sandbox": "Sandbox",
+    "settings": "Configuración"
   },
   "header": {
     "title": "Sebastian Andres Rubio Palominos",
@@ -13,7 +14,8 @@
     "select_language": "Seleccionar Idioma",
     "switch_to_light": "Cambiar a Modo Claro",
     "switch_to_dark": "Cambiar a Modo Oscuro",
-    "toggle_menu": "Alternar menú"
+    "toggle_menu": "Alternar menú",
+    "settings": "Configuración"
   },
   "sidenav": {
     "experience": "10+ Años de Experiencia",
@@ -23,6 +25,7 @@
     "projects_description": "Portafolio y Trabajo",
     "contact_description": "Contactar",
     "sandbox_description": "Experimentos y Demos",
+    "settings_description": "Configuración de la App",
     "built_with": "Construido con Angular 20",
     "copyright": "© 2025 Sebastian Andres Rubio Palominos"
   },
@@ -183,6 +186,90 @@
       "a5": "¡Definitivamente! Puedo ayudar a mejorar bases de código existentes, agregar nuevas características, optimizar rendimiento o migrar a tecnologías más nuevas. Comienzo con una revisión y evaluación exhaustiva del código.",
       "q6": "¿Cuál es tu estructura de pago preferida?",
       "a6": "Típicamente trabajo con pagos basados en hitos: 30% por adelantado, 40% en el punto medio y 30% al completar. Para proyectos más largos, podemos discutir cronogramas de pago mensuales."
+    }
+  },
+  "settings": {
+    "title": "Configuración",
+    "subtitle": "Configuración de la aplicación y visión técnica general",
+    "intro": {
+      "line1": "Bienvenido a la sección de configuración y visión técnica general de mi aplicación de portafolio. Esta página muestra las características integrales y las prácticas modernas de desarrollo implementadas en todo el proyecto.",
+      "line2": "Aquí puedes explorar la arquitectura técnica, estadísticas de desarrollo y las tecnologías de vanguardia que impulsan esta aplicación Angular 20, demostrando mi experiencia en desarrollo frontend moderno.",
+      "line3": "Cada sección a continuación destaca aspectos específicos de la aplicación, desde diseño responsivo e internacionalización hasta optimización de rendimiento y estrategias de pruebas."
+    },
+    "quick_settings": {
+      "title": "Configuración Rápida",
+      "theme": "Tema",
+      "theme_light": "Modo claro activo",
+      "theme_dark": "Modo oscuro activo",
+      "toggle": "Alternar",
+      "language": "Idioma",
+      "switch": "Cambiar"
+    },
+    "app_features": {
+      "title": "Características de la Aplicación",
+      "technologies": "Tecnologías Utilizadas",
+      "highlights": "Características Destacadas"
+    },
+    "technical": {
+      "title": "Implementación Técnica",
+      "implementations": "implementaciones"
+    },
+    "stats": {
+      "title": "Estadísticas de Desarrollo",
+      "lines_of_code": "Líneas de Código",
+      "components": "Componentes",
+      "services": "Servicios",
+      "tests": "Pruebas"
+    },
+    "actions": {
+      "title": "Acciones del Portafolio",
+      "export_settings": "Exportar Configuración",
+      "export_description": "Descargar configuración actual como JSON",
+      "export": "Exportar",
+      "reset_settings": "Restablecer Configuración",
+      "reset_description": "Restablecer toda la configuración a valores por defecto",
+      "reset": "Restablecer",
+      "view_source": "Ver Código Fuente",
+      "source_description": "Revisa el código fuente en GitHub",
+      "github": "GitHub"
+    },
+    "developer": {
+      "title": "Información del Desarrollador",
+      "title_description": "Desarrollador Frontend Senior especializado en Angular y React"
+    },
+    "features": {
+      "responsive_design": {
+        "name": "Diseño Responsivo",
+        "description": "Diseño responsivo mobile-first con CSS Grid y Flexbox para visualización óptima en todos los dispositivos"
+      },
+      "internationalization": {
+        "name": "Internacionalización",
+        "description": "Soporte completo i18n con traducciones en inglés y español usando Angular i18n y NGX-Translate"
+      },
+      "theme_system": {
+        "name": "Sistema de Temas",
+        "description": "Sistema completo de temas oscuro/claro con Material Design y propiedades CSS personalizadas"
+      },
+      "modern_angular": {
+        "name": "Angular Moderno",
+        "description": "Construido con Angular 20 usando componentes standalone, signals y las últimas mejores prácticas"
+      },
+      "api_integration": {
+        "name": "Integración de API",
+        "description": "Integración robusta de APIs con RxJS, manejo de errores y gestión de datos en tiempo real"
+      },
+      "performance": {
+        "name": "Optimización de Rendimiento",
+        "description": "Tamaños de bundle optimizados, lazy loading y estrategias eficientes de detección de cambios"
+      },
+      "testing": {
+        "name": "Estrategia de Pruebas",
+        "description": "Configuración completa de pruebas con Jest para pruebas unitarias y Cypress para pruebas E2E"
+      },
+      "deployment": {
+        "name": "Despliegue y CI/CD",
+        "description": "Pipeline de despliegue automatizado con GitHub Actions y optimización de hosting estático"
+      }
     }
   }
 }

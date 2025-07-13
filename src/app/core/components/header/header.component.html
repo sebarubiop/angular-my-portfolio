@@ -42,5 +42,13 @@
       [matTooltip]="themeService.isDarkMode() ? ('header.switch_to_light' | translate) : ('header.switch_to_dark' | translate)">
       <mat-icon>{{ themeService.isDarkMode() ? 'light_mode' : 'dark_mode' }}</mat-icon>
     </button>
+    
+    <!-- Settings -->
+    <button 
+      routerLink="/settings"
+      class="header__action-btn header__action-btn--circular"
+      [matTooltip]="'header.settings' | translate">
+      <mat-icon>settings</mat-icon>
+    </button>
   </div>
 </div> 

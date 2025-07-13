@@ -65,6 +65,12 @@ export class LanguageService {
     return this.availableLanguages.find(lang => lang.code === this.currentLanguage()) || this.availableLanguages[0];
   }
 
+  toggleLanguage(): void {
+    const currentLang = this.currentLanguage();
+    const newLang = currentLang === 'en' ? 'es' : 'en';
+    this.setLanguage(newLang);
+  }
+
   // Convenience methods for translation
   translate(key: string, params?: any): string {
     return this.translateService.instant(key, params);
