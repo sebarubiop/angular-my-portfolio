@@ -8,15 +8,15 @@
     "sandbox": "Sandbox"
   },
   "header": {
-    "title": "Sebastian Rubio",
-    "subtitle": "Desarrollador Frontend",
+    "title": "Sebastian Andres Rubio Palominos",
+    "subtitle": "Desarrollador Frontend Senior | Experto en Angular & React | CISA Certified",
     "select_language": "Seleccionar Idioma",
     "switch_to_light": "Cambiar a Modo Claro",
     "switch_to_dark": "Cambiar a Modo Oscuro",
     "toggle_menu": "Alternar menú"
   },
   "sidenav": {
-    "experience": "8+ Años de Experiencia",
+    "experience": "10+ Años de Experiencia",
     "home_description": "Bienvenida y Resumen",
     "about_description": "Antecedentes y Habilidades",
     "experience_description": "Trayectoria Profesional",
@@ -24,7 +24,7 @@
     "contact_description": "Contactar",
     "sandbox_description": "Experimentos y Demos",
     "built_with": "Construido con Angular 20",
-    "copyright": "© 2025 Sebastian Rubio"
+    "copyright": "© 2025 Sebastian Andres Rubio Palominos"
   },
   "common": {
     "view_project": "Ver Proyecto",
@@ -39,9 +39,9 @@
     "view_on_github": "Ver en GitHub"
   },
   "home": {
-    "hero_title": "Hola, soy Sebastian Rubio",
-    "hero_subtitle": "Desarrollador Frontend Senior",
-    "hero_description": "Apasionado por crear experiencias de usuario excepcionales con tecnologías web modernas. Especializado en Angular, React y TypeScript con más de 8 años de experiencia en la industria.",
+    "hero_title": "Hola, soy Sebastian Andres Rubio Palominos",
+    "hero_subtitle": "Desarrollador Frontend Senior | Experto en Angular & React | CISA Certified",
+    "hero_description": "Desarrollador Frontend Senior proactivo y orientado a resultados con más de 10 años de experiencia internacional en Chile, Australia y Estados Unidos. Fuerte experiencia en construcción de aplicaciones web escalables y performantes usando Angular, React y AWS. Capacidad comprobada para liderar mejoras de UI/UX, arquitectar estructuras de micro-frontend y entregar interfaces de usuario de alta calidad en entornos Agile de ritmo rápido.",
     "view_my_work": "Ver Mi Trabajo",
     "get_in_touch": "Contactar",
     "technologies_title": "Tecnologías con las que Trabajo",
@@ -58,9 +58,9 @@
     "page_title": "Sobre Mí",
     "page_subtitle": "Conoce más sobre mi trayectoria, habilidades y pasión por el desarrollo frontend",
     "my_journey": "Mi Trayectoria",
-    "story_paragraph_1": "Con más de 8 años de experiencia en desarrollo frontend, he tenido el privilegio de trabajar con equipos diversos y tecnologías para crear experiencias digitales excepcionales. Mi viaje comenzó con un título en ciencias de la computación y curiosidad por cómo las interfaces hermosas cobran vida.",
-    "story_paragraph_2": "Me especializo en frameworks modernos de JavaScript, particularmente Angular y React, y me apasiona crear aplicaciones accesibles, performantes y centradas en el usuario. Creo en escribir código limpio y mantenible siguiendo las mejores prácticas que aseguran escalabilidad y colaboración en equipo.",
-    "story_paragraph_3": "Cuando no estoy programando, me encontrarás explorando nuevas tecnologías, contribuyendo a proyectos de código abierto o mentoreando desarrolladores junior. Siempre estoy ansioso por asumir nuevos desafíos y seguir creciendo en este campo en constante evolución.",
+    "story_paragraph_1": "Con más de 10 años de experiencia internacional en Chile, Australia y Estados Unidos, he tenido el privilegio de trabajar con equipos diversos y tecnologías para crear experiencias digitales excepcionales. Mi viaje comenzó con una Licenciatura en Ingeniería en Informática de la Universidad de Santiago de Chile, seguida de una Maestría de MIT/MITM en la Universidad de Sydney.",
+    "story_paragraph_2": "Me especializo en frameworks modernos de JavaScript, particularmente Angular (2-15) y React.js, y me apasiona crear aplicaciones web escalables y performantes. Mi experiencia abarca arquitecturas de micro-frontend, diseño basado en componentes y entrega de interfaces de usuario de alta calidad en entornos Agile de ritmo rápido. Tengo amplia experiencia en industrias como logística, viajes, finanzas, e-learning y SaaS.",
+    "story_paragraph_3": "Como Auditor de Sistemas de Información certificado CISA, aporto una combinación única de experiencia técnica y conocimiento de seguridad a cada proyecto. Siempre estoy ansioso por asumir nuevos desafíos y seguir creciendo en este campo en constante evolución, con un enfoque en liderar mejoras de UI/UX y arquitectar soluciones escalables.",
     "technical_skills": "Habilidades Técnicas",
     "education_certifications": "Educación y Certificaciones",
     "interests_hobbies": "Intereses y Pasatiempos",
@@ -71,14 +71,14 @@
       "tools": "Herramientas y DevOps"
     },
     "interests": {
-      "open_source": "Código Abierto",
-      "open_source_desc": "Contribuyendo a proyectos comunitarios y compartiendo conocimiento con la comunidad de desarrollo",
       "mentoring": "Mentoría",
       "mentoring_desc": "Ayudando a desarrolladores junior a crecer en sus carreras y navegar la industria tecnológica",
-      "photography": "Fotografía",
-      "photography_desc": "Capturando momentos y explorando composición creativa a través de fotografía digital y analógica",
+      "latin_dance": "Baile Latino",
+      "latin_dance_desc": "Apasionado por el baile de salsa y bachata, disfrutando del ritmo y la expresión cultural de la música latina",
       "traveling": "Viajes",
-      "traveling_desc": "Explorando nuevas culturas y obteniendo perspectivas frescas a través de viajes y aventuras"
+      "traveling_desc": "Explorando nuevas culturas y obteniendo perspectivas frescas a través de viajes y aventuras",
+      "fitness": "Fitness y Bienestar",
+      "fitness_desc": "Manteniendo la salud física y mental a través de ejercicio regular y actividades al aire libre"
     },
     "values": {
       "innovation": "Innovación",
@@ -96,19 +96,16 @@
     "page_subtitle": "Una muestra de mi trabajo en diferentes tecnologías y dominios",
     "all_projects": "Todos los Proyectos",
     "featured": "Destacados",
-    "open_source": "Código Abierto",
     "featured_project": "Proyecto Destacado",
     "key_features": "Características Clave:",
     "project_highlights": "Aspectos Destacados del Proyecto:",
-    "view_live_project": "Ver Proyecto en Vivo",
-    "view_source": "Ver Código Fuente",
-    "open_source_contributions": "Contribuciones de Código Abierto",
-    "my_contribution": "Mi Contribución:"
+    "view_live_project": "Ver Proyecto en Vivo"
   },
   "experience": {
     "page_title": "Experiencia Profesional",
     "page_subtitle": "Mi trayectoria profesional a través de varios roles y tecnologías",
     "work_experience": "Experiencia Laboral",
+    "project_url": "URL del Proyecto:",
     "skills_progress": "Progreso de Habilidades",
     "achievements": "Logros",
     "key_achievements": "Logros Clave:",
@@ -120,6 +117,7 @@
   "contact": {
     "page_title": "Contactar",
     "page_subtitle": "Siempre estoy interesado en nuevas oportunidades y proyectos emocionantes. ¡Discutamos cómo podemos trabajar juntos!",
+    "get_in_touch": "Contactar",
     "contact_information": "Información de Contacto",
     "send_message": "Envíame un Mensaje",
     "connect_with_me": "Conecta Conmigo",
@@ -128,7 +126,7 @@
     "phone": "Teléfono",
     "phone_description": "Disponible de lunes a viernes, 9 AM - 6 PM (ART)",
     "location": "Ubicación",
-    "location_value": "Buenos Aires, Argentina",
+          "location_value": "Sydney, Australia",
     "location_description": "Abierto a trabajo remoto y reubicación",
     "response_time": "Tiempo de Respuesta",
     "response_time_value": "Dentro de 24 horas",

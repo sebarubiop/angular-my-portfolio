@@ -29,12 +29,15 @@ export class AboutComponent {
       nameKey: 'about.skills.frontend',
       icon: 'web',
       skills: [
-        { name: 'Angular', level: 95 },
-        { name: 'React', level: 90 },
+        { name: 'Angular (2-15+)', level: 95 },
+        { name: 'React.js', level: 60 },
         { name: 'TypeScript', level: 92 },
-        { name: 'JavaScript', level: 95 },
+        { name: 'JavaScript (ES6+)', level: 95 },
         { name: 'HTML5', level: 98 },
-        { name: 'CSS3/SCSS', level: 95 }
+        { name: 'CSS3/SCSS', level: 95 },
+        { name: 'Angular Material', level: 90 },
+        { name: 'Bootstrap', level: 85 },
+        { name: 'Ionic', level: 80 }
       ]
     },
     {
@@ -42,23 +45,26 @@ export class AboutComponent {
       icon: 'dns',
       skills: [
         { name: 'Node.js', level: 85 },
-        { name: 'Express.js', level: 82 },
-        { name: 'Firebase', level: 88 },
+        { name: 'Express', level: 82 },
+        { name: 'Nest.js', level: 80 },
+        { name: 'RESTful APIs', level: 88 },
         { name: 'MongoDB', level: 78 },
-        { name: 'PostgreSQL', level: 75 },
-        { name: 'GraphQL', level: 70 }
+        { name: 'MySQL', level: 75 },
+        { name: 'Socket.io', level: 75 },
+        { name: 'Micro-Frontend Architecture', level: 75 }
       ]
     },
     {
       nameKey: 'about.skills.tools',
       icon: 'build',
       skills: [
+        { name: 'AWS (S3, Lambda, API Gateway)', level: 80 },
         { name: 'Git/GitHub', level: 92 },
-        { name: 'Docker', level: 75 },
-        { name: 'AWS', level: 70 },
         { name: 'Jest/Cypress', level: 85 },
-        { name: 'Webpack', level: 80 },
-        { name: 'Figma', level: 75 }
+        { name: 'Karma/Jasmine', level: 80 },
+        { name: 'Jenkins', level: 75 },
+        { name: 'JIRA/Confluence', level: 85 },
+        { name: 'Redux/RxJS/NgRx', level: 80 }
       ]
     }
   ];
@@ -66,47 +72,68 @@ export class AboutComponent {
   education = [
     {
       icon: 'school',
-      title: 'Computer Science Degree',
-      institution: 'Universidad de Buenos Aires',
-      year: '2012 - 2016',
-      description: 'Bachelor of Science in Computer Science with focus on software engineering and web technologies.'
+      title: 'MIT/MITM Combined Master\'s Degree in Engineering & IT',
+      institution: 'The University of Sydney',
+      year: '2015 - 2016',
+      description: 'Master\'s degree in Engineering & IT with focus on advanced software engineering and technology management.'
+    },
+    {
+      icon: 'school',
+      title: 'Bachelor of Computer and Informatics Engineering',
+      institution: 'University of Santiago of Chile',
+      year: '2005 - 2009',
+      description: 'Bachelor\'s degree in Computer and Informatics Engineering with comprehensive foundation in software development.'
     },
     {
       icon: 'verified',
-      title: 'Angular Certification',
-      institution: 'Google Developers',
-      year: '2019',
-      description: 'Advanced Angular certification covering enterprise application development and best practices.'
+      title: 'CISA Certified Information Systems Auditor',
+      institution: 'ISACA',
+      year: 'Since 2012',
+      description: 'Certified Information Systems Auditor specializing in IT governance, risk management, and security.'
     },
     {
-      icon: 'cloud',
-      title: 'AWS Solutions Architect',
-      institution: 'Amazon Web Services',
-      year: '2021',
-      description: 'AWS certified solutions architect with expertise in cloud infrastructure and deployment.'
+      icon: 'verified',
+      title: 'BECAS Chile Scholarship',
+      institution: 'Government of Chile',
+      year: '2015',
+      description: 'Funded full master\'s degree abroad scholarship for studies at The University of Sydney.'
+    },
+    {
+      icon: 'rocket_launch',
+      title: 'INCUBATE Startup Accelerator',
+      institution: 'The University of Sydney',
+      year: '2017',
+      description: 'Participated in startup accelerator program focusing on technology entrepreneurship.'
+    },
+    {
+      icon: 'school',
+      title: 'Summer Scholarship 2017',
+      institution: 'The University of Sydney',
+      year: '2017',
+      description: 'Merit-based scholarship awarded for academic excellence and research potential.'
     }
   ];
 
   interests = [
-    {
-      icon: 'code',
-      titleKey: 'about.interests.open_source',
-      descriptionKey: 'about.interests.open_source_desc'
-    },
     {
       icon: 'school',
       titleKey: 'about.interests.mentoring',
       descriptionKey: 'about.interests.mentoring_desc'
     },
     {
-      icon: 'camera_alt',
-      titleKey: 'about.interests.photography',
-      descriptionKey: 'about.interests.photography_desc'
+      icon: 'sports_soccer',
+      titleKey: 'about.interests.latin_dance',
+      descriptionKey: 'about.interests.latin_dance_desc'
     },
     {
       icon: 'hiking',
       titleKey: 'about.interests.traveling',
       descriptionKey: 'about.interests.traveling_desc'
+    },
+    {
+      icon: 'fitness_center',
+      titleKey: 'about.interests.fitness',
+      descriptionKey: 'about.interests.fitness_desc'
     }
   ];
 

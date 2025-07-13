@@ -42,6 +42,30 @@ interface User {
   role: string;
 }
 
+interface ApiUser {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  phone: string;
+  website: string;
+  company: {
+    name: string;
+    catchPhrase: string;
+    bs: string;
+  };
+  address: {
+    street: string;
+    suite: string;
+    city: string;
+    zipcode: string;
+    geo: {
+      lat: string;
+      lng: string;
+    };
+  };
+}
+
 interface TableColumn {
   key: keyof User | string;
   label: string;
@@ -50,6 +74,22 @@ interface TableColumn {
   type: 'text' | 'email' | 'date' | 'status' | 'actions';
 }
 
+/**
+ * Sandbox Component - Interactive Development Environment
+ * 
+ * This component demonstrates advanced Angular features including:
+ * - Real-time data fetching from JSONPlaceholder API (https://jsonplaceholder.typicode.com/)
+ * - Advanced table operations with filtering, sorting, and pagination
+ * - Form handling with validation and auto-save functionality
+ * - Error handling and loading states
+ * - Real-time metrics simulation
+ * - Data export functionality
+ * 
+ * API Integration:
+ * - Users are fetched from JSONPlaceholder API instead of mock data
+ * - Data is transformed to match the internal User interface
+ * - Additional fields (status, lastLogin, role) are generated for demo purposes
+ */
 @Component({
   selector: 'app-sandbox',
   standalone: true,
@@ -267,29 +307,63 @@ export class SandboxComponent implements OnInit {
   private loadUsers() {
     this.isLoading.set(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      const mockUsers: User[] = [
-        {
-          id: 1,
-          name: 'John Doe',
-          email: 'john@example.com',
-          phone: '+1234567890',
-          website: 'john.dev',
-          company: { name: 'Tech Corp' },
-          address: { city: 'New York', zipcode: '10001' },
-          status: 'active',
-          lastLogin: new Date(),
-          role: 'Admin'
+    // Fetch real users from JSONPlaceholder API
+    this.http.get<ApiUser[]>('https://jsonplaceholder.typicode.com/users')
+      .pipe(
+        map(apiUsers => this.transformApiUsers(apiUsers)),
+        catchError(error => {
+          console.error('Error fetching users:', error);
+          this.errorState.set({
+            title: 'Network Error',
+            message: 'Unable to load users from the server. Please check your internet connection and try again.'
+          });
+          return of([]);
+        })
+      )
+      .subscribe({
+        next: users => {
+          this.users.set(users);
+          this.filteredUsers.set(users);
+          this.isLoading.set(false);
+          this.updatePaginatedData();
         },
-        // Add more mock users...
-      ];
-      
-      this.users.set(mockUsers);
-      this.filteredUsers.set(mockUsers);
-      this.isLoading.set(false);
-      this.updatePaginatedData();
-    }, 1000);
+        error: error => {
+          console.error('Subscription error:', error);
+          this.isLoading.set(false);
+        }
+      });
+  }
+
+  private transformApiUsers(apiUsers: ApiUser[]): User[] {
+    const statuses: ('active' | 'inactive' | 'pending')[] = ['active', 'inactive', 'pending'];
+    const roles = ['Admin', 'User', 'Manager', 'Editor', 'Viewer'];
+    
+    return apiUsers.map(apiUser => ({
+      id: apiUser.id,
+      name: apiUser.name,
+      email: apiUser.email,
+      phone: apiUser.phone,
+      website: apiUser.website,
+      company: {
+        name: apiUser.company.name
+      },
+      address: {
+        city: apiUser.address.city,
+        zipcode: apiUser.address.zipcode
+      },
+      // Generate realistic status, lastLogin, and role data
+      status: statuses[Math.floor(Math.random() * statuses.length)],
+      lastLogin: this.generateRandomDate(),
+      role: roles[Math.floor(Math.random() * roles.length)]
+    }));
+  }
+
+  private generateRandomDate(): Date {
+    // Generate a random date within the last 30 days
+    const now = new Date();
+    const thirtyDaysAgo = new Date(now.getTime() - (30 * 24 * 60 * 60 * 1000));
+    const randomTime = thirtyDaysAgo.getTime() + Math.random() * (now.getTime() - thirtyDaysAgo.getTime());
+    return new Date(randomTime);
   }
 
   private setupTableFilters() {
@@ -446,14 +520,20 @@ export class SandboxComponent implements OnInit {
   }
 
   addNewUser() {
+    const currentUserCount = this.users().length;
+    const newUserId = Math.max(...this.users().map(u => u.id), 0) + 1;
+    
     const newUser: User = {
-      id: Date.now(),
-      name: 'New User',
-      email: 'new@example.com',
-      phone: '',
-      website: '',
-      company: { name: 'New Company' },
-      address: { city: '', zipcode: '' },
+      id: newUserId,
+      name: `New User ${currentUserCount + 1}`,
+      email: `user${newUserId}@example.com`,
+      phone: `+1-${Math.floor(Math.random() * 900) + 100}-${Math.floor(Math.random() * 900) + 100}-${Math.floor(Math.random() * 9000) + 1000}`,
+      website: `user${newUserId}.dev`,
+      company: { name: `Company ${newUserId}` },
+      address: { 
+        city: ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix'][Math.floor(Math.random() * 5)], 
+        zipcode: `${Math.floor(Math.random() * 90000) + 10000}` 
+      },
       status: 'pending',
       lastLogin: new Date(),
       role: 'User'
@@ -461,7 +541,7 @@ export class SandboxComponent implements OnInit {
     
     this.users.set([...this.users(), newUser]);
     this.applyFilters();
-    this.snackBar.open('New user added!', 'Close', { duration: 2000 });
+    this.snackBar.open('New user added successfully!', 'Close', { duration: 2000 });
   }
 
   exportData() {
@@ -497,6 +577,7 @@ export class SandboxComponent implements OnInit {
 
   refreshData() {
     this.loadUsers();
+    this.snackBar.open('Data refreshed successfully!', 'Close', { duration: 2000 });
   }
 
   private startLiveMetrics() {
@@ -531,6 +612,7 @@ export class SandboxComponent implements OnInit {
 
   retryOperation() {
     this.errorState.set(null);
-    this.snackBar.open('Operation retried successfully!', 'Close', { duration: 2000 });
+    this.loadUsers();
+    this.snackBar.open('Retrying operation...', 'Close', { duration: 2000 });
   }
 }

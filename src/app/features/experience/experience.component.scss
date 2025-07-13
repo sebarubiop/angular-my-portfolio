@@ -177,6 +177,44 @@
   color: var(--on-surface-variant-color);
 }
 
+/* Project URL Section */
+.project-url-section {
+  margin: 16px 0 24px;
+  padding: 16px;
+  background: var(--surface-variant-color);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.url-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--on-surface-color);
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  color: var(--primary-variant-color);
+  text-decoration: underline;
+}
+
+.project-link mat-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}
+
 .technologies-section {
   margin-top: 16px;
 }

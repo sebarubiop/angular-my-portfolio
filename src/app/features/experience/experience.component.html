@@ -32,6 +32,14 @@
               <mat-card-content>
                 <p class="job-description">{{ job.description }}</p>
                 
+                <div *ngIf="job.url" class="project-url-section">
+                  <h5 class="url-title">{{ 'experience.project_url' | translate }}</h5>
+                  <a [href]="job.url" target="_blank" rel="noopener noreferrer" class="project-link">
+                    <mat-icon>launch</mat-icon>
+                    {{ job.url }}
+                  </a>
+                </div>
+                
                 <div class="achievements-section">
                   <h5 class="achievements-title">{{ 'experience.key_achievements' | translate }}</h5>
                   <ul class="achievements-list">

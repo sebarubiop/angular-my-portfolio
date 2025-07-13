@@ -2,26 +2,30 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px 40px;
+  min-height: 100vh;
 }
 
 .contact-header {
   text-align: center;
   margin-bottom: 48px;
+  padding: 20px 0;
 }
 
 .page-title {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
   margin: 0 0 16px;
   color: var(--on-surface-color);
+  line-height: 1.2;
 }
 
 .page-subtitle {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 3vw, 1.25rem);
   color: var(--on-surface-variant-color);
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
+  padding: 0 16px;
 }
 
 .contact-content {
@@ -34,13 +38,15 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
+  align-items: start;
 }
 
 .section-title {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: 600;
   margin: 0 0 32px;
   color: var(--on-surface-color);
+  line-height: 1.3;
 }
 
 /* Contact Information */
@@ -113,6 +119,7 @@
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .social-link {
@@ -126,6 +133,8 @@
   border: 1px solid var(--outline-color);
   color: var(--on-surface-color);
   font-weight: 500;
+  min-width: 120px;
+  justify-content: center;
 }
 
 .social-link:hover {
@@ -151,10 +160,16 @@
   border-color: #1da1f2;
 }
 
-.social-link.instagram:hover {
-  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+.social-link.facebook:hover {
+  background-color: #1877f2;
   color: white;
-  border-color: #bc1888;
+  border-color: #1877f2;
+}
+
+.social-link.bitbucket:hover {
+  background-color: #0052cc;
+  color: white;
+  border-color: #0052cc;
 }
 
 /* Contact Form */
@@ -241,26 +256,65 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contact-form-section {
+    padding: 28px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 768px) {
   .contact-container {
-    padding: 0 16px 40px;
+    padding: 0 16px 32px;
+  }
+
+  .contact-header {
+    margin-bottom: 32px;
   }
 
   .page-title {
     font-size: 2.5rem;
+    margin-bottom: 12px;
   }
 
   .page-subtitle {
     font-size: 1.125rem;
+    padding: 0 16px;
   }
 
   .section-title {
     font-size: 1.75rem;
+    margin-bottom: 24px;
+  }
+
+  .contact-content {
+    gap: 40px;
   }
 
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+
+  .contact-cards {
+    gap: 20px;
+  }
+
+  .contact-card {
+    padding: 20px;
   }
 
   .contact-form-section {
@@ -269,39 +323,76 @@
 
   .form-row {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .form-actions {
     flex-direction: column;
     align-items: stretch;
+    gap: 12px;
   }
 
   .form-actions button {
     width: 100%;
+    min-width: unset;
   }
 
   .social-links {
     flex-direction: column;
+    gap: 12px;
   }
 
   .social-link {
     justify-content: center;
+    padding: 14px 16px;
   }
 }
 
 @media (max-width: 480px) {
+  .contact-container {
+    padding: 0 12px 24px;
+  }
+
+  .contact-header {
+    margin-bottom: 24px;
+  }
+
   .page-title {
     font-size: 2rem;
+    margin-bottom: 8px;
+  }
+
+  .page-subtitle {
+    font-size: 1rem;
+    padding: 0 8px;
   }
 
   .section-title {
     font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .contact-content {
+    gap: 32px;
+  }
+
+  .contact-grid {
+    gap: 24px;
+  }
+
+  .contact-cards {
+    gap: 16px;
+  }
+
+  .contact-card {
+    padding: 16px;
   }
 
   .contact-icon {
-    font-size: 40px;
-    width: 40px;
-    height: 40px;
+    font-size: 36px;
+    width: 36px;
+    height: 36px;
+    margin-bottom: 12px;
   }
 
   .contact-title {
@@ -312,8 +403,34 @@
     font-size: 1rem;
   }
 
+  .contact-description {
+    font-size: 0.8rem;
+  }
+
   .contact-form-section {
     padding: 16px;
+  }
+
+  .form-row {
+    gap: 12px;
+  }
+
+  .social-links {
+    gap: 8px;
+  }
+
+  .social-link {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+
+  .faq-section {
+    margin-top: 24px;
+  }
+
+  .faq-answer {
+    font-size: 0.8rem;
+    padding: 12px 0;
   }
 }
 

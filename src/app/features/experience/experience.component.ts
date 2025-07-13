@@ -28,131 +28,220 @@ export class ExperienceComponent implements OnInit {
   
   workExperience = [
     {
-      title: 'Senior Frontend Developer',
-      company: 'TechCorp Solutions',
-      period: '2020 - Present',
+      title: 'Senior Front-End Developer',
+      company: 'Perficient (Client: XPO Logistics)',
+      period: 'May 2021 - May 2025',
       icon: 'work',
       logo: 'https://images.pexels.com/photos/3758105/pexels-photo-3758105.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-      description: 'Leading frontend development for enterprise web applications, managing a team of 5 developers, and implementing modern web technologies.',
+      description: 'Lead developer on ext-web.ltl-xpo.com, the main LTL customer-facing app. Built high-performance UIs using Angular 8-15, ag-Grid, and Angular Material.',
+      url: 'https://ext-web.ltl-xpo.com/',
       achievements: [
-        'Increased application performance by 40% through optimization strategies',
-        'Led migration from AngularJS to Angular 15, reducing technical debt',
-        'Implemented comprehensive testing strategy, achieving 85% code coverage',
-        'Mentored 3 junior developers and established code review processes'
+        'Designed scalable micro-frontend modules integrated with RESTful APIs',
+        'Developed internal applications for sales operations and shipment management using React.js v14-15 and Redux',
+        'Ensured responsive, maintainable UIs and robust state management',
+        'Managed projects via TypeScript, RxJS, and NgRx in Agile environments'
       ],
-      technologies: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'Material Design', 'Jest', 'Cypress']
+      technologies: ['Angular', 'React.js', 'SCSS', 'Jest', 'Micro-frontend', 'Git', 'JIRA', 'Confluence', 'REST', 'AWS']
     },
     {
-      title: 'Full Stack Developer',
-      company: 'StartupTech Inc.',
-      period: '2018 - 2020',
-      icon: 'code',
+      title: 'Senior Front-End Developer',
+      company: 'myHotel (Fidelity Suite platform)',
+      period: 'Dec 2020 - May 2021',
+      icon: 'hotel',
       logo: 'https://images.pexels.com/photos/3758105/pexels-photo-3758105.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-      description: 'Developed and maintained multiple web applications using modern JavaScript frameworks and backend technologies.',
+      description: 'Enhanced customer engagement tools in the hospitality industry via Angular 8/11 and React.js - Redux.',
+      url: 'https://fidelity.myhotel.cl/',
       achievements: [
-        'Built 3 production applications from scratch serving 10,000+ users',
-        'Implemented real-time features using WebSocket connections',
-        'Optimized database queries, reducing load times by 60%',
-        'Integrated third-party APIs and payment systems'
+        'Integrated UI components with Node.js, AWS S3, API Gateway, and Lambda',
+        'Achieved seamless data exchange between frontend and backend systems',
+        'Implemented modern UI patterns with Angular Material and Bootstrap',
+        'Delivered responsive solutions for hospitality industry clients'
       ],
-      technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Socket.io', 'AWS', 'Docker']
+      technologies: ['Angular', 'React.js', 'Redux', 'Node.js', 'AWS S3', 'API Gateway', 'Lambda', 'Bootstrap', 'Angular Material', 'GitHub', 'TypeScript', 'SCSS']
     },
     {
-      title: 'Frontend Developer',
-      company: 'WebDesign Studio',
-      period: '2016 - 2018',
-      icon: 'web',
+      title: 'Full-Stack Developer',
+      company: 'Smartraining',
+      period: 'Feb 2020 - Sep 2020',
+      icon: 'school',
       logo: 'https://images.pexels.com/photos/3758105/pexels-photo-3758105.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-      description: 'Created responsive websites and web applications for various clients, focusing on user experience and performance.',
+      description: 'Developed scalable e-learning products using MEAN Stack (MongoDB, Express, Angular, Node.js), Nest.js, and Ionic 5.',
+      url: 'https://smartraining.io/',
       achievements: [
-        'Delivered 15+ client projects with 100% satisfaction rate',
-        'Reduced average page load time by 50% across all projects',
-        'Implemented responsive design principles for mobile-first approach',
-        'Collaborated with designers to create pixel-perfect implementations'
+        'Built cutting-edge educational apps with React.js and Redux',
+        'Deployed mobile apps and web tools through DigitalOcean',
+        'Created comprehensive learning management systems',
+        'Implemented real-time features for interactive learning experiences'
       ],
-      technologies: ['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'Bootstrap', 'Sass', 'Gulp']
+      technologies: ['MEAN Stack', 'MongoDB', 'Express', 'Angular', 'Node.js', 'Nest.js', 'Ionic 5', 'React.js', 'Redux', 'DigitalOcean']
+    },
+    {
+      title: 'Full-Stack Developer',
+      company: 'Hazloxmi (Service marketplace)',
+      period: 'Jul 2019 - Jan 2020',
+      icon: 'store',
+      logo: 'https://images.pexels.com/photos/3758105/pexels-photo-3758105.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
+      description: 'Built Chile\'s Airtasker-style platform using Angular Universal, NGXS, and MEAN stack (MongoDB, Express, Angular, Node.js).',
+      achievements: [
+        'Developed cutting-edge marketplace apps with React.js and Redux',
+        'Integrated real-time features via Socket.io, Cloudflare, Cloudinary, and Mailgun',
+        'Created scalable service marketplace architecture',
+        'Implemented advanced search and matching algorithms'
+      ],
+      technologies: ['Angular Universal', 'NGXS', 'MEAN Stack', 'MongoDB', 'Express', 'Angular', 'Node.js', 'React.js', 'Redux', 'Socket.io', 'Cloudflare', 'Cloudinary', 'Mailgun']
+    },
+    {
+      title: 'Front-End Developer',
+      company: 'Excite Holidays (OTA booking system)',
+      period: 'Apr 2018 - Apr 2019',
+      icon: 'flight',
+      logo: 'https://images.pexels.com/photos/3758105/pexels-photo-3758105.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
+      description: 'Created responsive booking interfaces using Angular 7, AWS S3, Jenkins, and Node.js for online travel agency.',
+      achievements: [
+        'Developed user-friendly booking systems for travel industry',
+        'Implemented responsive design for mobile and desktop users',
+        'Integrated with multiple travel APIs and payment gateways',
+        'Optimized performance for high-traffic booking scenarios'
+      ],
+      technologies: ['Angular 7', 'AWS S3', 'Jenkins', 'Node.js', 'TypeScript', 'SCSS', 'RESTful APIs']
+    },
+    {
+      title: 'Front-End Developer',
+      company: 'Optica Group (Finance App)',
+      period: 'Sep 2017 - Dec 2017',
+      icon: 'account_balance',
+      logo: 'https://images.pexels.com/photos/3758105/pexels-photo-3758105.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
+      description: 'Developed mobile-first features in Ionic 3, with full testing coverage via Karma/Jasmine for financial applications.',
+      achievements: [
+        'Created comprehensive test suites with Karma and Jasmine',
+        'Implemented mobile-first responsive design principles',
+        'Delivered secure financial application features',
+        'Ensured cross-platform compatibility and performance'
+      ],
+      technologies: ['Ionic 3', 'Karma', 'Jasmine', 'TypeScript', 'SCSS', 'Angular']
+    },
+    {
+      title: 'Full-Stack Developer',
+      company: 'Blogotrip (Travel itinerary planner)',
+      period: 'Aug 2016 - Aug 2017',
+      icon: 'map',
+      logo: 'https://images.pexels.com/photos/3758105/pexels-photo-3758105.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
+      description: 'Created tourism itinerary apps using AngularJS 1.x, MongoDB, Node.js, and Amazon S3 for travel planning platform.',
+      achievements: [
+        'Built comprehensive travel planning and itinerary management system',
+        'Integrated with multiple travel APIs and mapping services',
+        'Implemented user-generated content and social features',
+        'Delivered scalable solution for tourism industry clients'
+      ],
+      technologies: ['AngularJS 1.x', 'MongoDB', 'Node.js', 'Amazon S3', 'JavaScript', 'HTML5', 'CSS3']
     }
   ];
 
   skillsEvolution = [
     {
       name: 'Angular',
-      years: 6,
+      years: 9,
       proficiency: 95,
       timeline: [
+        { year: '2016', active: true },
+        { year: '2017', active: true },
         { year: '2018', active: true },
         { year: '2019', active: true },
         { year: '2020', active: true },
         { year: '2021', active: true },
         { year: '2022', active: true },
-        { year: '2023', active: true }
+        { year: '2023', active: true },
+        { year: '2024', active: true }
       ]
     },
     {
       name: 'React',
-      years: 5,
+      years: 6,
       proficiency: 90,
       timeline: [
         { year: '2019', active: true },
         { year: '2020', active: true },
         { year: '2021', active: true },
         { year: '2022', active: true },
-        { year: '2023', active: true }
+        { year: '2023', active: true },
+        { year: '2024', active: true }
       ]
     },
     {
       name: 'TypeScript',
-      years: 4,
-      proficiency: 88,
+      years: 8,
+      proficiency: 92,
       timeline: [
-        { year: '2020', active: true },
-        { year: '2021', active: true },
-        { year: '2022', active: true },
-        { year: '2023', active: true }
-      ]
-    },
-    {
-      name: 'Node.js',
-      years: 5,
-      proficiency: 82,
-      timeline: [
+        { year: '2017', active: true },
+        { year: '2018', active: true },
         { year: '2019', active: true },
         { year: '2020', active: true },
         { year: '2021', active: true },
         { year: '2022', active: true },
-        { year: '2023', active: true }
+        { year: '2023', active: true },
+        { year: '2024', active: true }
+      ]
+    },
+    {
+      name: 'Node.js',
+      years: 9,
+      proficiency: 85,
+      timeline: [
+        { year: '2016', active: true },
+        { year: '2017', active: true },
+        { year: '2018', active: true },
+        { year: '2019', active: true },
+        { year: '2020', active: true },
+        { year: '2021', active: true },
+        { year: '2022', active: true },
+        { year: '2023', active: true },
+        { year: '2024', active: true }
+      ]
+    },
+    {
+      name: 'AWS',
+      years: 7,
+      proficiency: 80,
+      timeline: [
+        { year: '2018', active: true },
+        { year: '2019', active: true },
+        { year: '2020', active: true },
+        { year: '2021', active: true },
+        { year: '2022', active: true },
+        { year: '2023', active: true },
+        { year: '2024', active: true }
       ]
     }
   ];
 
   professionalAchievements = [
     {
-      title: 'Technical Leadership Award',
-      description: 'Recognized for outstanding technical leadership and mentorship contributions.',
-      impact: 'Successfully led a team of 5 developers through a major platform migration, resulting in improved performance and maintainability.',
-      date: '2023',
+      title: 'CISA Certified Information Systems Auditor',
+      description: 'Achieved CISA certification from ISACA, demonstrating expertise in IT governance and security.',
+      impact: 'Brings unique combination of technical expertise and security awareness to frontend development projects.',
+      date: '2012',
+      icon: 'verified'
+    },
+    {
+      title: 'BECAS Chile Scholarship',
+      description: 'Received prestigious scholarship from the Government of Chile to fund master\'s degree studies abroad.',
+      impact: 'Enabled advanced education at The University of Sydney, leading to enhanced technical leadership and international perspective.',
+      date: '2015',
       icon: 'emoji_events'
     },
     {
-      title: 'Innovation in Development',
-      description: 'Awarded for implementing cutting-edge development practices and tools.',
-      impact: 'Introduced automated testing and CI/CD pipelines, reducing deployment time by 70% and bug reports by 50%.',
-      date: '2022',
-      icon: 'lightbulb'
+      title: 'International Experience Leadership',
+      description: 'Led development teams across three countries: Chile, Australia, and the United States.',
+      impact: 'Delivered successful projects in diverse cultural and business environments, adapting to different industry requirements.',
+      date: '2016-2025',
+      icon: 'public'
     },
     {
-      title: 'Client Excellence Award',
-      description: 'Received for consistently delivering high-quality solutions that exceed client expectations.',
-      impact: 'Maintained a 98% client satisfaction rate across 20+ projects, leading to 60% increase in repeat business.',
-      date: '2021',
-      icon: 'star'
-    },
-    {
-      title: 'Community Contributor',
-      description: 'Recognized for active participation in open-source projects and developer community.',
-      impact: 'Contributed to 15+ open-source projects with over 5,000 GitHub stars collectively, helping thousands of developers worldwide.',
-      date: '2020',
-      icon: 'group'
+      title: 'Master\'s Degree Achievement',
+      description: 'Completed MIT/MITM Combined Master\'s Degree in Engineering & IT at University of Sydney.',
+      impact: 'Advanced technical knowledge and strategic thinking capabilities that enhance project leadership and technical decision-making.',
+      date: '2016',
+      icon: 'school'
     }
   ];
 
@@ -160,31 +249,37 @@ export class ExperienceComponent implements OnInit {
     {
       name: 'Frontend Technologies',
       skills: [
-        { name: 'Angular', level: 95 },
-        { name: 'React', level: 90 },
-        { name: 'TypeScript', level: 88 },
-        { name: 'JavaScript', level: 92 },
-        { name: 'HTML5/CSS3', level: 95 }
+        { name: 'Angular (2-15)', level: 95 },
+        { name: 'React.js', level: 90 },
+        { name: 'TypeScript', level: 92 },
+        { name: 'JavaScript (ES6+)', level: 95 },
+        { name: 'HTML5/CSS3/SCSS', level: 98 },
+        { name: 'Angular Material', level: 90 },
+        { name: 'Bootstrap', level: 85 }
       ]
     },
     {
-      name: 'Backend & Database',
+      name: 'Backend & Architecture',
       skills: [
-        { name: 'Node.js', level: 82 },
-        { name: 'Express.js', level: 80 },
-        { name: 'MongoDB', level: 75 },
-        { name: 'PostgreSQL', level: 70 },
-        { name: 'GraphQL', level: 65 }
+        { name: 'Node.js', level: 85 },
+        { name: 'Express', level: 82 },
+        { name: 'Nest.js', level: 80 },
+        { name: 'MongoDB', level: 78 },
+        { name: 'MySQL', level: 75 },
+        { name: 'RESTful APIs', level: 88 },
+        { name: 'Micro-Frontend Architecture', level: 85 }
       ]
     },
     {
-      name: 'Tools & DevOps',
+      name: 'Cloud & DevOps',
       skills: [
-        { name: 'Git/GitHub', level: 90 },
-        { name: 'Docker', level: 75 },
-        { name: 'AWS', level: 70 },
+        { name: 'AWS (S3, Lambda, API Gateway)', level: 80 },
+        { name: 'Git/GitHub', level: 92 },
+        { name: 'Jenkins', level: 75 },
         { name: 'Jest/Cypress', level: 85 },
-        { name: 'Webpack', level: 80 }
+        { name: 'Karma/Jasmine', level: 80 },
+        { name: 'JIRA/Confluence', level: 85 },
+        { name: 'Redux/RxJS/NgRx', level: 88 }
       ]
     }
   ];
