@@ -76,6 +76,12 @@ export class SidenavComponent {
       route: '/settings',
       icon: 'settings',
       descriptionKey: 'sidenav.settings_description'
+    },
+    {
+      labelKey: 'nav.mapping',
+      route: '/mapping',
+      icon: 'map',
+      descriptionKey: 'sidenav.mapping_description'
     }
   ];
 

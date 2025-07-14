@@ -1,0 +1,36 @@
+<div class="mapping-container">
+  <div class="mapping-header">
+    <h2>Interactive Map</h2>
+    <p>Explore our interactive mapping application</p>
+  </div>
+  
+  <div class="mapping-description">
+    <div class="description-card">
+      <h3>Micro-Frontend Integration</h3>
+      <p>This page demonstrates micro-frontend architecture by integrating a React application within our Angular portfolio. The React mapping app is loaded using <strong>Module Federation</strong> (via &#64;angular-architects/module-federation) for seamless cross-framework integration.</p>
+      <p class="implementation-details">This implementation showcases advanced frontend architecture patterns, allowing different frameworks to work together while maintaining performance and user experience. The React app runs independently but appears seamlessly integrated within the Angular application.</p>
+      <div class="tech-stack">
+        <span class="tech-badge">Angular 20</span>
+        <span class="tech-badge">React</span>
+        <span class="tech-badge">Module Federation</span>
+        <span class="tech-badge">Micro-Frontends</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="mapping-content">
+    <!-- Fallback iframe approach -->
+    <iframe 
+      #mappingIframe
+      [src]="mappingUrl | safe"
+      class="mapping-iframe"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+    
+    <!-- Alternative: Module Federation approach -->
+    <div #mappingContainer class="mapping-module-container" *ngIf="useModuleFederation">
+      <!-- React app will be loaded here -->
+    </div>
+  </div>
+</div> 

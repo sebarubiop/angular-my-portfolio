@@ -6,7 +6,8 @@
     "contact": "Contact",
     "experience": "Experience",
     "sandbox": "Sandbox",
-    "settings": "Settings"
+    "settings": "Settings",
+    "mapping": "Interactive Map"
   },
   "header": {
     "title": "Sebastian Andres Rubio Palominos",
@@ -26,6 +27,7 @@
     "contact_description": "Get In Touch",
     "sandbox_description": "Experiments & Demos",
     "settings_description": "App Settings & Info",
+    "mapping_description": "React app integrated via Module Federation micro-frontend",
     "built_with": "Built with Angular 20",
     "copyright": "© 2025 Sebastian Andres Rubio Palominos"
   },

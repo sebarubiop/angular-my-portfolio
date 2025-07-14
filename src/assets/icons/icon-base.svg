@@ -1,1 +1,40 @@
- 
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3F51B5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5C6BC0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E8EAF6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Rounded square background -->
+  <rect x="32" y="32" width="448" height="448" rx="80" ry="80" fill="url(#bgGradient)" />
+  
+  <!-- Code brackets decorative elements -->
+  <path d="M 120 180 L 80 220 L 120 260" stroke="#FFFFFF" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/>
+  <path d="M 392 180 L 432 220 L 392 260" stroke="#FFFFFF" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/>
+  
+  <!-- Angular-style decorative elements -->
+  <circle cx="140" cy="140" r="12" fill="#FFFFFF" opacity="0.2"/>
+  <circle cx="372" cy="140" r="12" fill="#FFFFFF" opacity="0.2"/>
+  <circle cx="140" cy="372" r="12" fill="#FFFFFF" opacity="0.2"/>
+  <circle cx="372" cy="372" r="12" fill="#FFFFFF" opacity="0.2"/>
+  
+  <!-- Main text "SR" -->
+  <text x="256" y="280" font-family="Arial, sans-serif" font-size="180" font-weight="bold" text-anchor="middle" fill="url(#textGradient)">SR</text>
+  
+  <!-- Subtitle -->
+  <text x="256" y="350" font-family="Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="middle" fill="#FFFFFF" opacity="0.8">Frontend Dev</text>
+  
+  <!-- Tech dots pattern -->
+  <circle cx="180" cy="400" r="4" fill="#FFFFFF" opacity="0.4"/>
+  <circle cx="200" cy="400" r="4" fill="#FFFFFF" opacity="0.4"/>
+  <circle cx="220" cy="400" r="4" fill="#FFFFFF" opacity="0.4"/>
+  <circle cx="292" cy="400" r="4" fill="#FFFFFF" opacity="0.4"/>
+  <circle cx="312" cy="400" r="4" fill="#FFFFFF" opacity="0.4"/>
+  <circle cx="332" cy="400" r="4" fill="#FFFFFF" opacity="0.4"/>
+</svg> 
