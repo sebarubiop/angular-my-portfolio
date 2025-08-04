@@ -17,20 +17,52 @@
       </div>
     </div>
   </div>
+
+  <!-- Module Federation Status -->
+  <app-module-federation-status></app-module-federation-status>
   
   <div class="mapping-content">
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="loading-container">
+      <div class="loading-spinner"></div>
+      <p>{{ loadingMessage }}</p>
+    </div>
+    
+    <!-- Error State -->
+    <div *ngIf="loadError" class="error-container">
+      <div class="error-icon">⚠️</div>
+      <h4>Loading Error</h4>
+      <p>{{ errorMessage }}</p>
+      <div class="error-details">
+        <p><strong>Attempt:</strong> {{ retryCount + 1 }}/{{ maxRetries + 1 }}</p>
+        <p><strong>Method:</strong> {{ useModuleFederation ? 'Module Federation' : 'Iframe Fallback' }}</p>
+      </div>
+      <button (click)="retryCount = 0; loadReactMappingApp()" class="retry-button">Retry</button>
+    </div>
+    
+    <!-- Module Federation Container -->
+    <div #mappingContainer class="mapping-module-container" *ngIf="!isLoading && !loadError && useModuleFederation">
+      <!-- React app will be rendered here via Module Federation -->
+    </div>
+    
     <!-- Fallback iframe approach -->
     <iframe 
+      *ngIf="!isLoading && !loadError && !useModuleFederation"
       #mappingIframe
       [src]="mappingUrl | safe"
       class="mapping-iframe"
       frameborder="0"
       allowfullscreen>
     </iframe>
-    
-    <!-- Alternative: Module Federation approach -->
-    <div #mappingContainer class="mapping-module-container" *ngIf="useModuleFederation">
-      <!-- React app will be loaded here -->
+  </div>
+  
+  <!-- Module Federation Info -->
+  <div class="module-federation-info" *ngIf="!isLoading && !loadError">
+    <div class="info-card">
+      <h4>Loading Method</h4>
+      <p *ngIf="moduleFederationLoaded">✅ <strong>Module Federation</strong> - React app loaded via Module Federation</p>
+      <p *ngIf="!moduleFederationLoaded && !useModuleFederation">🔄 <strong>Iframe Fallback</strong> - React app loaded via iframe</p>
+      <p *ngIf="!moduleFederationLoaded && useModuleFederation">⏳ <strong>Loading...</strong> - Attempting Module Federation</p>
     </div>
   </div>
 </div> 

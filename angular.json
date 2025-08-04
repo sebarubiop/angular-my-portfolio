@@ -5,16 +5,41 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "demo": {
+    "angular-portfolio": {
       "architect": {
         "build": {
-          "builder": "@angular/build:application",
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/manifest.json"
+            ],
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "outputPath": "dist/angular-portfolio",
+            "polyfills": ["zone.js", "@angular/localize/init"],
+            "scripts": [],
+            "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles",
+                "src/styles/abstracts"
+              ]
+            },
+            "tsConfig": "tsconfig.app.json",
+            "extraWebpackConfig": "webpack.config.js"
+          },
           "configurations": {
             "development": {
               "extractLicenses": false,
               "namedChunks": true,
               "optimization": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "extraWebpackConfig": "webpack.config.js"
             },
             "production": {
               "aot": true,
@@ -35,47 +60,26 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "extraWebpackConfig": "webpack.config.js"
             }
           },
-          "defaultConfiguration": "production",
-          "options": {
-            "assets": [
-              "src/favicon.ico",
-              "src/assets",
-              "src/manifest.json"
-            ],
-            "index": "src/index.html",
-            "browser": "src/main.ts",
-            "outputPath": "dist/demo",
-            "polyfills": ["zone.js", "@angular/localize/init"],
-            "scripts": [],
-            "styles": [
-              "@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss"
-            ],
-            "stylePreprocessorOptions": {
-              "includePaths": [
-                "src/styles",
-                "src/styles/abstracts"
-              ]
-            },
-            "tsConfig": "tsconfig.app.json",
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
-          }
+          "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular/build:dev-server",
+          "builder": "ngx-build-plus:dev-server",
+          "options": {
+            "buildTarget": "angular-portfolio:build:development",
+            "extraWebpackConfig": "webpack.config.js"
+          },
           "configurations": {
             "development": {
-              "buildTarget": "demo:build:development"
+              "buildTarget": "angular-portfolio:build:development",
+              "extraWebpackConfig": "webpack.config.js"
             },
             "production": {
-              "buildTarget": "demo:build:production"
+              "buildTarget": "angular-portfolio:build:production",
+              "extraWebpackConfig": "webpack.config.js"
             }
           },
           "defaultConfiguration": "development"
@@ -84,12 +88,12 @@
           "builder": "@angular/build:ssr-dev-server",
           "configurations": {
             "development": {
-              "buildTarget": "demo:build:development",
-              "serverTarget": "demo:server:development"
+              "buildTarget": "angular-portfolio:build:development",
+              "serverTarget": "angular-portfolio:server:development"
             },
             "production": {
-              "buildTarget": "demo:build:production",
-              "serverTarget": "demo:server:production"
+              "buildTarget": "angular-portfolio:build:production",
+              "serverTarget": "angular-portfolio:server:production"
             }
           },
           "defaultConfiguration": "development"
@@ -114,7 +118,7 @@
         "extract-i18n": {
           "builder": "@angular/localize:extract",
           "options": {
-            "buildTarget": "demo:build"
+            "buildTarget": "angular-portfolio:build"
           }
         }
       },

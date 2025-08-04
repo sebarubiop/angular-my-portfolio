@@ -118,4 +118,135 @@
   .mapping-container {
     padding: 10px;
   }
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-secondary);
+  
+  p {
+    margin-top: 16px;
+    font-size: 1rem;
+  }
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--border-color);
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--error-color, #dc3545);
+  text-align: center;
+  padding: 20px;
+  background: var(--error-bg, #f8d7da);
+  border: 1px solid var(--error-border, #f5c6cb);
+  border-radius: 8px;
+  
+  .error-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+  }
+  
+  h4 {
+    color: var(--error-color, #dc3545);
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  p {
+    font-size: 1rem;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  
+  .error-details {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    
+    p {
+      margin: 4px 0;
+      font-size: 0.9rem;
+      
+      strong {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.retry-button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-weight: 500;
+  
+  &:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.module-federation-info {
+  margin-top: 20px;
+}
+
+.info-card {
+  background: var(--card-bg, #f8f9fa);
+  border: 1px solid var(--border-color, #e9ecef);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  
+  h4 {
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  p {
+    color: var(--text-primary);
+    margin: 8px 0;
+    font-size: 0.95rem;
+    
+    strong {
+      font-weight: 600;
+    }
+  }
+}
+
+.react-wrapper {
+  width: 100%;
+  height: 100%;
 } 

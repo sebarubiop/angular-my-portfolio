@@ -47,39 +47,39 @@ This guide explains how to integrate the React mapping app (`https://react-mappi
 4. `src/app/shared/pipes/safe-url.pipe.ts` - URL sanitization pipe
 5. `src/app/core/services/micro-frontend.service.ts` - Service for Module Federation
 6. `webpack.config.js` - Module Federation configuration
+7. `src/bootstrap.ts` - Bootstrap file for Module Federation
+8. `update-dependencies.md` - Dependency installation guide
 
 ### Route Added:
 - `/mapping` - Access the mapping feature
 
 ## Setup Instructions
 
-### Step 1: Install Dependencies
+### Step 1: Install Dependencies ✅
 ```bash
 npm install @angular-architects/module-federation
 ```
 
-### Step 2: Configure Module Federation
-The `webpack.config.js` file is already created with the basic configuration.
+### Step 2: Configure Module Federation ✅
+The `webpack.config.js` file is already created with the basic configuration and shared dependencies.
 
-### Step 3: Update Angular Configuration
-Add to `angular.json`:
-```json
-{
-  "architect": {
-    "build": {
-      "builder": "@angular-architects/module-federation/webpack",
-      "options": {
-        "webpackConfig": "webpack.config.js"
-      }
-    }
-  }
-}
-```
+### Step 3: Update Angular Configuration ✅
+The `angular.json` has been updated to use the Module Federation builder.
 
-### Step 4: Test the Implementation
-1. Start the development server: `npm start`
-2. Navigate to `/mapping`
-3. The React mapping app should load in an iframe
+### Step 4: Create Bootstrap Files ✅
+- `src/bootstrap.ts` - Bootstrap file for Module Federation
+- `src/main.ts` - Updated to use bootstrap
+
+### Step 5: Enhanced Component Implementation ✅
+- Updated mapping component with Module Federation support
+- Added loading states and error handling
+- Implemented fallback to iframe approach
+
+### Step 6: Test the Implementation
+1. Install dependencies: `npm install @angular-architects/module-federation`
+2. Start the development server: `npm start`
+3. Navigate to `/mapping`
+4. The React mapping app should load via Module Federation or fallback to iframe
 
 ## Advanced Module Federation Setup
 
